@@ -27,10 +27,11 @@ body {
 .app {
     --appBgColor: #fff;
     --primaryColor: rgb(10, 10, 10);
-    --secondaryColor: #94693c;
-    --secondaryColor2: #5a270d;
+    --secondaryColor: #d9992a;
+    --secondaryColor2: #ae7108;
+    /* --secondaryColor2: #5a270d;
     --navBgColor: #3c2d25;
-    --footerBgColor: #eee6e0;
+    --footerBgColor: #eee6e0; */
     --textFont: 'EB Garamond', serif;
     --titleFont: 'Poppins', sans-serif;
     width: 100vw;

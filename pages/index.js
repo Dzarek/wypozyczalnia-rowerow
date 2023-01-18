@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import Header from "../components/homepage/Header";
 import FirstInfo from "../components/homepage/FirstInfo";
+import ShortBikes from "../components/homepage/ShortBikes";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <div className="app">
         <Header />
         <FirstInfo />
+        <ShortBikes />
       </div>
     </>
   );

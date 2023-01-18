@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import Header from "../components/homepage/Header";
+import FirstInfo from "../components/homepage/FirstInfo";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       </Head>
       <div className="app">
         <Header />
+        <FirstInfo />
       </div>
     </>
   );

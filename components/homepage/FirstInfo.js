@@ -30,7 +30,7 @@ const FirstInfo = () => {
 const Wrapper = styled.div`
   width: 100vw;
   margin: 0 auto;
-  padding: 15vh 10vw 10vh;
+  padding: 12vh 10vw 5vh;
   position: relative;
   display: flex;
   justify-content: space-between;

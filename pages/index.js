@@ -3,6 +3,7 @@ import Head from "next/head";
 import Header from "../components/homepage/Header";
 import FirstInfo from "../components/homepage/FirstInfo";
 import ShortBikes from "../components/homepage/ShortBikes";
+import ShortRoads from "../components/homepage/ShortRoads";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <Header />
         <FirstInfo />
         <ShortBikes />
+        <ShortRoads />
       </div>
     </>
   );

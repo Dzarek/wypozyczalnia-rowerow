@@ -91,6 +91,7 @@ const ShortBikes = () => {
 };
 
 const Wrapper = styled.div`
+  padding-bottom: 5vh;
   .title h2 {
     color: #444;
   }

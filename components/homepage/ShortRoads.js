@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { MdLocationOn, MdDirectionsBike } from "react-icons/md";
+import { FiMap } from "react-icons/fi";
+import Link from "next/link";
 
 const shortRoadsImg = "/images/homePage/shortRoads.png";
 
@@ -7,11 +9,18 @@ const ShortRoads = () => {
   return (
     <Wrapper className="mainPage">
       <div className="title">
-        <h2>Polecane Trasy</h2>
+        {/* <h2>Polecane Trasy</h2> */}
+        <h2>Zastanawiasz się gdzie pojechać?</h2>
       </div>
       <MdDirectionsBike className="bike svg" />
       <MdLocationOn className="marker svg" />
       <img src={shortRoadsImg} alt="mapa" />
+      <Link href="/roads">
+        <div className="linkToRoads">
+          <h3>Zobacz nasze proponowane trasy!</h3>
+          <FiMap className="map" />
+        </div>
+      </Link>
     </Wrapper>
   );
 };
@@ -33,13 +42,13 @@ const Wrapper = styled.div`
   .bike {
     position: absolute;
     top: 49%;
-    left: 13.5%;
+    left: 11.5%;
     font-size: 7rem;
   }
   .marker {
     position: absolute;
     top: 20%;
-    right: 25%;
+    right: 23%;
     animation: markerSizer 2s infinite alternate;
     font-size: 8rem;
   }
@@ -55,12 +64,37 @@ const Wrapper = styled.div`
     }
   }
   img {
-    width: 80vw;
+    width: 85vw;
     height: 70vh;
     position: absolute;
     bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
+  }
+  .linkToRoads {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+
+    h3 {
+      font-size: 1.8rem;
+    }
+    svg {
+      color: var(--secondaryColor);
+      font-size: 3rem;
+      margin-top: 2vh;
+      transition: 0.3s;
+    }
+    :hover svg {
+      margin-top: 5vh;
+      font-size: 4rem;
+    }
   }
 `;
 

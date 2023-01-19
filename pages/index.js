@@ -4,6 +4,7 @@ import Header from "../components/homepage/Header";
 import FirstInfo from "../components/homepage/FirstInfo";
 import ShortBikes from "../components/homepage/ShortBikes";
 import ShortRoads from "../components/homepage/ShortRoads";
+import ShortGallery from "../components/homepage/ShortGallery";
 
 export default function Home() {
   return (
@@ -16,11 +17,12 @@ export default function Home() {
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="shortcut icon" href="/logo192.png" />
       </Head>
-      <div className="app">
+      <div>
         <Header />
         <FirstInfo />
         <ShortBikes />
         <ShortRoads />
+        <ShortGallery />
       </div>
     </>
   );

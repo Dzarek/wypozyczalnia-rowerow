@@ -5,6 +5,7 @@ import FirstInfo from "../components/homepage/FirstInfo";
 import ShortBikes from "../components/homepage/ShortBikes";
 import ShortRoads from "../components/homepage/ShortRoads";
 import ShortGallery from "../components/homepage/ShortGallery";
+import ShortFaqRegulations from "../components/homepage/ShortFaqRegulations";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <ShortBikes />
         <ShortRoads />
         <ShortGallery />
+        <ShortFaqRegulations />
       </div>
     </>
   );

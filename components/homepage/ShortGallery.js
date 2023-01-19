@@ -15,13 +15,19 @@ const galleryImages = [
 
 const ShortGallery = () => {
   const [activeImg, setActiveImg] = useState(galleryImages[0]);
+  const [activeIcon, setActiveIcon] = useState(false);
   return (
-    <Wrapper>
+    <Wrapper
+      onMouseOver={() => setActiveIcon(true)}
+      onMouseLeave={() => setActiveIcon(false)}
+    >
       <div className="lineVertical"></div>
       <div className="lineVertical2"></div>
       <div className="lineHorizontal"></div>
       <div className="lineHorizontal2"></div>
-      <MdCamera className="cameraIcon" />
+      <MdCamera
+        className={activeIcon ? "cameraIcon activeCameraIcon" : "cameraIcon"}
+      />
       <div className="content">
         <div className="title">
           <h2>Jak to wygląda w Cycloagaete?</h2>
@@ -125,6 +131,14 @@ const Wrapper = styled.div`
     transform: translate(-50%, -50%);
     z-index: 0;
     opacity: 0.1;
+  }
+  .activeCameraIcon {
+    animation: cameraRotate 3s linear infinite;
+    @keyframes cameraRotate {
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
   }
   .allImages {
     width: 40%;

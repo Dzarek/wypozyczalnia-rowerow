@@ -1,8 +1,14 @@
 import styled from "styled-components";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const firstInfoImg = "/images/homepage/firstInfoImg.png";
 
 const FirstInfo = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000, disable: "false" });
+  }, []);
   return (
     <Wrapper>
       <section>
@@ -22,7 +28,7 @@ const FirstInfo = () => {
           veniam consectetur.
         </p>
       </section>
-      <img src={firstInfoImg} alt="" />
+      <img src={firstInfoImg} alt="" data-aos="fade-left" />
     </Wrapper>
   );
 };

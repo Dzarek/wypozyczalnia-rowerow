@@ -79,7 +79,7 @@ const Footer = () => {
 const Wrapper = styled.footer`
   width: 100vw;
   padding: 5vh 7vw;
-  height: 45vh;
+  height: 55vh;
   background: #111;
   position: relative;
   display: flex;
@@ -92,7 +92,7 @@ const Wrapper = styled.footer`
     align-items: flex-start;
     justify-content: space-between;
     width: 80%;
-    height: 90%;
+    /* height: 90%; */
     position: relative;
     .logoFooter {
       position: absolute;

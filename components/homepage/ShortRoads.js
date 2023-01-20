@@ -3,7 +3,7 @@ import { MdLocationOn, MdDirectionsBike } from "react-icons/md";
 import { FiMap } from "react-icons/fi";
 import Link from "next/link";
 
-const shortRoadsImg = "/images/homePage/shortRoads.png";
+const shortRoadsImg = "/images/homepage/shortRoads.png";
 
 const ShortRoads = () => {
   return (

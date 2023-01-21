@@ -14,6 +14,11 @@ const Footer = () => {
   return (
     <Wrapper>
       <div className="content">
+        <p className="cytat">
+          Życie jest jak jazda na rowerze. <br /> Żeby utrzymać równowagę musisz
+          się poruszać naprzód. <br /> - Albert Einstein
+        </p>
+        <img src={logo} alt="logo" className="logoFooter" />
         <div className="socialMediaWrapper">
           <h3>Kontakt :</h3>
           <a href="tel:+48798698605">
@@ -41,7 +46,7 @@ const Footer = () => {
             </span>
           </h4>
         </div>
-        <img src={logo} alt="logo" className="logoFooter" />
+
         {/* <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4185.385869082698!2d-15.703949287680176!3d28.10152308590123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc408b6ed78d535b%3A0xd8fa937f91bbf379!2sC.%20Jos%C3%A9%20Berm%C3%BAdez%2C%205%2C%2035480%20Agaete%2C%20Las%20Palmas%2C%20Hiszpania!5e0!3m2!1spl!2spl!4v1674217837512!5m2!1spl!2spl"
           className="map"
@@ -49,7 +54,7 @@ const Footer = () => {
           allowfullscreen=""
           loading="lazy"
         ></iframe> */}
-        <div className="bankDetails">
+        {/* <div className="bankDetails">
           <h3>Dane do przelewu :</h3>
           <h4>
             {" "}
@@ -59,10 +64,11 @@ const Footer = () => {
             {" "}
             <span>€</span> ES3101822424140201582352
           </h4>
-        </div>
+        </div> */}
       </div>
 
       <p className="allRights">
+        <div className="line"></div>
         &copy; {new Date().getFullYear()} DANIEL PASZEK CYCLO TRENER. Wszelkie
         prawa zastrzeżone.
       </p>
@@ -79,7 +85,7 @@ const Footer = () => {
 const Wrapper = styled.footer`
   width: 100vw;
   padding: 5vh 7vw;
-  height: 55vh;
+  /* height: 50vh; */
   background: #111;
   position: relative;
   display: flex;
@@ -91,7 +97,7 @@ const Wrapper = styled.footer`
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
     /* height: 90%; */
     position: relative;
     .logoFooter {
@@ -103,11 +109,28 @@ const Wrapper = styled.footer`
       /* margin: 0 5vw; */
       filter: saturate(0);
     }
+    .cytat {
+      /* width: 30%; */
+      /* font-weight: 500; */
+      font-style: italic;
+      line-height: 1.8;
+      font-size: 1.4rem;
+      align-self: center;
+      text-align: center;
+      font-family: var(--headerFont);
+    }
   }
   .allRights {
-    margin-top: 5vh;
+    margin-top: 3vh;
     font-family: var(--titleFont);
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    .line {
+      width: 70%;
+      background: var(--secondaryColor);
+      height: 2px;
+      margin: 0 auto 2vh;
+    }
   }
 
   .socialMediaWrapper {
@@ -115,11 +138,11 @@ const Wrapper = styled.footer`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 40%;
+    /* width: 30%; */
     a,
     h4 {
       font-size: 1.2rem;
-      margin-bottom: 1vh;
+      margin-bottom: 1.5vh;
       font-weight: 500;
       text-decoration: none;
       color: white;
@@ -140,9 +163,10 @@ const Wrapper = styled.footer`
     }
   }
   h3 {
-    margin-bottom: 2vh;
+    margin-bottom: 3vh;
     text-transform: uppercase;
     font-size: 1.5rem;
+    font-family: var(--titleFont);
   }
   /* .map {
     width: 30%;
@@ -151,7 +175,7 @@ const Wrapper = styled.footer`
     border: 2px solid var(--secondaryColor);
     border-radius: 5px;
   } */
-  .bankDetails {
+  /* .bankDetails {
     h3 {
       margin-bottom: 5vh;
     }
@@ -179,7 +203,7 @@ const Wrapper = styled.footer`
         text-align: center;
       }
     }
-  }
+  } */
 
   .logoJarek {
     position: absolute;

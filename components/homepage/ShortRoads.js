@@ -41,16 +41,16 @@ const Wrapper = styled.div`
   }
   .bike {
     position: absolute;
-    top: 49%;
-    left: 11.5%;
-    font-size: 7rem;
+    top: 57%;
+    left: 12.5%;
+    font-size: 5rem;
   }
   .marker {
     position: absolute;
-    top: 20%;
-    right: 23%;
+    top: 28%;
+    right: 24%;
     animation: markerSizer 2s infinite alternate;
-    font-size: 8rem;
+    font-size: 7rem;
   }
   @keyframes markerSizer {
     0% {
@@ -65,7 +65,7 @@ const Wrapper = styled.div`
   }
   img {
     width: 85vw;
-    height: 70vh;
+    height: 60vh;
     position: absolute;
     bottom: 2%;
     left: 50%;
@@ -92,7 +92,7 @@ const Wrapper = styled.div`
       transition: 0.3s;
     }
     :hover svg {
-      margin-top: 5vh;
+      /* margin-top: 5vh; */
       font-size: 4rem;
     }
   }

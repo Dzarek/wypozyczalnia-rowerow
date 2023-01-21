@@ -3,6 +3,8 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
+import { RiTruckLine, RiTimeLine, RiTeamLine } from "react-icons/ri";
+
 const firstInfoImg = "/images/homepage/firstInfoImg.png";
 
 const FirstInfo = () => {
@@ -27,6 +29,26 @@ const FirstInfo = () => {
           autem, fuga, excepturi alias modi veritatis magni accusantium maxime
           veniam consectetur.
         </p>
+        <div className="iconContent">
+          <div className="onePart">
+            <RiTruckLine />
+            <h4>
+              7 dni w górę - dostawa gratis <br /> na terenie całej wyspy
+            </h4>
+          </div>
+          <div className="onePart">
+            <RiTimeLine />
+            <h4>
+              Czynne 24h na dobę/ <br /> 7 dni w tygodniu
+            </h4>
+          </div>
+          <div className="onePart">
+            <RiTeamLine />
+            <h4>
+              Domowa atmosfera <br /> kolarskiej rodziny
+            </h4>
+          </div>
+        </div>
       </section>
       <img src={firstInfoImg} alt="" data-aos="fade-left" />
     </Wrapper>
@@ -42,7 +64,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   section {
-    width: 45vw;
+    width: 50vw;
     text-align: left;
     h2 {
       margin-bottom: 5vh;
@@ -57,6 +79,34 @@ const Wrapper = styled.div`
       font-size: 1.2rem;
       font-weight: 500;
       line-height: 1.5;
+    }
+    .iconContent {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-top: 7vh;
+      .onePart {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30%;
+        svg {
+          color: var(--secondaryColor);
+          margin-bottom: 2vh;
+          font-size: 3rem;
+          transition: 0.4s;
+        }
+        h4 {
+          text-align: center;
+          font-size: 1.4rem;
+          font-weight: 500;
+          font-family: var(--headerFont);
+        }
+        :hover svg {
+          transform: scale(1.2);
+        }
+      }
     }
   }
   img {

@@ -61,9 +61,9 @@ const ShortGallery = () => {
 };
 
 const Wrapper = styled.div`
-  width: 90vw;
+  width: 85vw;
   min-height: 60vh;
-  margin: 7vh auto;
+  margin: 10vh auto;
   padding: 7vh 5vw;
   position: relative;
   border: 3px solid var(--secondaryColor);
@@ -123,7 +123,7 @@ const Wrapper = styled.div`
     align-items: flex-start;
   }
   .cameraIcon {
-    font-size: 15rem;
+    font-size: 8rem;
     align-self: center;
     position: absolute;
     top: 50%;
@@ -141,11 +141,12 @@ const Wrapper = styled.div`
     }
   }
   .allImages {
-    width: 40%;
+    width: 45%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin-left: -2vw;
     img {
       width: 40%;
       height: 15vh;
@@ -176,6 +177,7 @@ const Wrapper = styled.div`
       margin-top: 20px;
       border: 2px solid var(--secondaryColor3);
       border-radius: 5px;
+      margin-left: 7vw;
     }
     .galleryLink {
       font-size: 1.8rem;
@@ -187,6 +189,7 @@ const Wrapper = styled.div`
       display: flex;
       align-items: center;
       cursor: pointer;
+      margin-left: 7vw;
       svg {
         color: var(--secondaryColor);
         margin: 2px auto 0 10px;

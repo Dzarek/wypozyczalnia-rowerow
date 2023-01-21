@@ -30,7 +30,7 @@ const ShortGallery = () => {
       />
       <div className="content">
         <div className="title">
-          <h2>Jak to wygląda w Cycloagaete?</h2>
+          <h2>Tak to wygląda w Cycloagaete...</h2>
         </div>
         <main>
           <section className="allImages">

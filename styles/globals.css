@@ -34,9 +34,6 @@ body {
     --secondaryColor: #d9992a;
     --secondaryColor2: #dc9416;
     --secondaryColor3: #af7512;
-    /* --secondaryColor2: #5a270d;
-    --navBgColor: #3c2d25;
-    --footerBgColor: #eee6e0; */
     --textFont: 'EB Garamond', serif;
     --titleFont: 'Poppins', sans-serif;
     --headerFont: 'Barlow Condensed', sans-serif;
@@ -81,16 +78,22 @@ body {
 
 
 .buttonLink {
-    background: none;
-    border: none;
-    font-size: 4rem;
-    cursor: pointer;
-    color: var(--navbarBgColor);
-    transition: 0.5s;
+    text-decoration: none;
+    background: var(--secondaryColor3);
+    padding: 10px 20px;
+    text-align: center;
+    color: white;
+    font-family: var(--headerFont);
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 3vh;
+    transition: 0.4s;
 }
 
 .buttonLink:hover {
-    color: var(--secondaryColor);
+    letter-spacing: 5px;
 }
 
 

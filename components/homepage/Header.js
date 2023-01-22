@@ -2,23 +2,16 @@ import styled from "styled-components";
 import Link from "next/link";
 import { HiChevronDoubleDown } from "react-icons/hi";
 
-const headerImg = "/images/homepage/headerImg.png";
 const cycloagaeteH1 = "/images/homepage/cycloagaeteH1.png";
-const headerBg = "/images/homepage/2.jpg";
-const pasekBg = "/images/pasek2.png";
+const headerBg = "/images/homepage/headerBg.jpg";
+const pasekBg = "/images/homepage/pasek.png";
 const polandFlag = "/images/poland-flag.png";
 const englandFlag = "/images/england-flag.png";
 
 const Header = () => {
-  // console.log(window.innerWidth);
   return (
     <Wrapper>
       <img src={headerBg} alt="" className="headerBg" />
-      {/* <div className="navPart"></div>
-      <div className="navPart2"></div>
-      <img src={headerImg} alt="" className="headerLogo" /> */}
-      {/* <h1>{window.innerHeight}</h1>
-      <h1>{window.innerWidth}</h1> */}
       <img src={pasekBg} alt="" className="pasek" />
       <nav>
         <Link href="/">
@@ -66,12 +59,17 @@ const Wrapper = styled.div`
   width: 100vw;
   position: relative;
   overflow: hidden;
-  background-color: black;
   .pasek {
     position: absolute;
     top: 0;
     left: 0;
     height: 126vh;
+    @media screen and (max-width: 1100px) {
+      display: none;
+    }
+    @media screen and (max-height: 500px) {
+      display: none;
+    }
   }
   .languages {
     border-left: 2px solid var(--secondaryColor);
@@ -91,47 +89,30 @@ const Wrapper = styled.div`
       }
     }
   }
-  .navPart {
-    width: 15vw;
-    height: 11vh;
-    background: white;
-    position: absolute;
-    top: -1vh;
-    left: 12vw;
-    transform: rotate(-25deg);
-  }
-  .navPart2 {
-    width: 4.52vw;
-    height: 11vh;
-    background: white;
-    position: absolute;
-    top: 3.8vh;
-    left: 0;
-    transform: translateY(50%);
-  }
-  .headerLogo {
-    width: 10vw;
-    /* height: 10vh; */
-    position: absolute;
-    top: 4.2vh;
-    left: 3.8vw;
-    /* margin-right: 10vw; */
-    animation: logoAnim 2s linear infinite alternate;
-  }
+
   nav {
     width: 80vw;
     height: 10vh;
     position: absolute;
     /* background-color: rgba(255, 255, 255, 1); */
     top: 0vh;
-    /* transform: translateY(-50%); */
     right: 0;
     z-index: 999;
     padding: 0 5vw 0 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    @media screen and (max-width: 1440px) {
+      padding: 0 3vw 0 3vw;
+    }
+    @media screen and (max-width: 1100px) {
+      background-color: rgba(255, 255, 255, 1);
+      width: 100vw;
+    }
+    @media screen and (max-height: 500px) {
+      background-color: rgba(255, 255, 255, 1);
+      width: 100vw;
+    }
     p {
       text-transform: uppercase;
       font-weight: 600;
@@ -145,6 +126,11 @@ const Wrapper = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @media screen and (max-width: 1440px) {
+        padding: 0 1vw;
+        font-size: 1.2rem;
+      }
       :hover {
         background: var(--secondaryColor3);
         color: #fff;
@@ -164,7 +150,6 @@ const Wrapper = styled.div`
     left: 0;
     z-index: 0;
     animation: bgMove 20s linear infinite alternate;
-    /* filter: brightness(0.7); */
   }
   @keyframes bgMove {
     0% {
@@ -175,21 +160,13 @@ const Wrapper = styled.div`
     }
   }
   section {
-    /* background-color: rgba(0, 0, 0, 0.8); */
     height: 100vh;
     width: 100vw;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
-    /* .headerLogo {
-      width: 15vw;
-      position: absolute;
-      top: 0%;
-      left: 7%;
-      transform: translateY(-50%);
-      animation: logoAnim 2s linear infinite alternate;
-    } */
+
     @keyframes logoAnim {
       0% {
         filter: saturate(1);

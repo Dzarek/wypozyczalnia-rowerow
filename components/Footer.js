@@ -5,6 +5,7 @@ import {
   MdEmail,
   MdFacebook,
   MdLocationOn,
+  MdAccessTimeFilled,
 } from "react-icons/md";
 
 const logoJarek = "/images/logoJarek.png";
@@ -14,10 +15,26 @@ const Footer = () => {
   return (
     <Wrapper>
       <div className="content">
-        <p className="cytat">
+        {/* <p className="cytat">
           Życie jest jak jazda na rowerze. <br /> Żeby utrzymać równowagę musisz
           się poruszać naprzód. <br /> - Albert Einstein
-        </p>
+        </p> */}
+        <div className="bankDetails">
+          <h3>Godziny pracy biura :</h3>
+          <h4>
+            <MdAccessTimeFilled />
+            8:00-16:00
+          </h4>
+          <h3>Dane do przelewu :</h3>
+          <h4>
+            {" "}
+            <span>PLN</span> 46291000060000000003315884
+          </h4>
+          <h4>
+            {" "}
+            <span>€</span> ES3101822424140201582352
+          </h4>
+        </div>
         <img src={logo} alt="logo" className="logoFooter" />
         <div className="socialMediaWrapper">
           <h3>Kontakt :</h3>
@@ -54,17 +71,6 @@ const Footer = () => {
           allowfullscreen=""
           loading="lazy"
         ></iframe> */}
-        {/* <div className="bankDetails">
-          <h3>Dane do przelewu :</h3>
-          <h4>
-            {" "}
-            <span>PLN</span> 46291000060000000003315884
-          </h4>
-          <h4>
-            {" "}
-            <span>€</span> ES3101822424140201582352
-          </h4>
-        </div> */}
       </div>
 
       <p className="allRights">
@@ -137,8 +143,8 @@ const Wrapper = styled.footer`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    /* width: 30%; */
+    align-items: center;
+    width: 30%;
     a,
     h4 {
       font-size: 1.2rem;
@@ -151,6 +157,7 @@ const Wrapper = styled.footer`
       transition: 0.5s;
       font-family: var(--headerFont);
       letter-spacing: 2px;
+      align-self: flex-start;
       :hover {
         transform: scale(1.1);
       }
@@ -167,6 +174,8 @@ const Wrapper = styled.footer`
     text-transform: uppercase;
     font-size: 1.5rem;
     font-family: var(--titleFont);
+    font-weight: 700;
+    text-align: center;
   }
   /* .map {
     width: 30%;
@@ -175,13 +184,17 @@ const Wrapper = styled.footer`
     border: 2px solid var(--secondaryColor);
     border-radius: 5px;
   } */
-  /* .bankDetails {
-    h3 {
+  .bankDetails {
+    /* h3 {
       margin-bottom: 5vh;
-    }
+    } */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35%;
     h4 {
       font-size: 1.2rem;
-      margin-bottom: 3vh;
+      margin-bottom: 1vh;
       font-weight: 500;
       color: white;
       display: flex;
@@ -189,21 +202,36 @@ const Wrapper = styled.footer`
       transition: 0.5s;
       font-family: var(--headerFont);
       letter-spacing: 2px;
+      text-align: center;
+      align-self: flex-start;
+      margin-left: 3vw;
+      :nth-of-type(1) {
+        margin-bottom: 6vh;
+        align-self: center;
+        font-size: 1.3rem;
+        margin-left: 0vw;
+      }
       :hover {
         transform: scale(1.1);
       }
       span {
         flex-shrink: 0;
         margin-right: 10px;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         background: var(--secondaryColor);
         width: 50px;
         padding: 2px;
         border-radius: 10px;
         text-align: center;
       }
+      svg {
+        flex-shrink: 0;
+        color: var(--secondaryColor);
+        margin-right: 10px;
+        font-size: 1.5rem;
+      }
     }
-  } */
+  }
 
   .logoJarek {
     position: absolute;

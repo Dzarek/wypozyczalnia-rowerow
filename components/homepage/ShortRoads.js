@@ -81,7 +81,7 @@ const Wrapper = styled.div`
     align-items: center;
     color: white;
     cursor: pointer;
-    /* font-family: var(--headerFont); */
+    font-family: var(--headerFont);
     h3 {
       font-size: 1.8rem;
     }

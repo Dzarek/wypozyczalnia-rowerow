@@ -224,6 +224,8 @@ const Wrapper = styled.div`
     width: 40vw;
     padding: 5px;
     border-radius: 5px;
+    font-family: var(--headerFont);
+    letter-spacing: 3px;
     :hover {
       border: 2px solid var(--secondaryColor);
       color: var(--secondaryColor);

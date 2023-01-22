@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 import { HiChevronDoubleDown } from "react-icons/hi";
 
 const headerImg = "/images/homepage/headerImg.png";
@@ -15,13 +16,27 @@ const Header = () => {
         <img src={englandFlag} alt="flaga angielska" />
       </div>
       <nav>
-        <p className="activeNav">strona główna</p>
-        <p>rowery</p>
-        <p>polecane trasy</p>
-        <p>galeria</p>
-        <p>faq</p>
-        <p>regulamin</p>
-        <p>kontakt</p>
+        <Link href="/">
+          <p className="activeNav">strona główna</p>
+        </Link>
+        <Link href="/bikes">
+          <p>rowery</p>
+        </Link>
+        <Link href="/roads">
+          <p>polecane trasy</p>
+        </Link>
+        <Link href="/gallery">
+          <p>galeria</p>
+        </Link>
+        <Link href="/faq">
+          <p>faq</p>
+        </Link>
+        <Link href="/regulations">
+          <p>regulamin</p>
+        </Link>
+        <Link href="/contact">
+          <p>kontakt</p>
+        </Link>
       </nav>
       <img src={headerBg} alt="" className="headerBg" />
       <section>
@@ -32,7 +47,9 @@ const Header = () => {
           {/* <h1>CYCLOAGAETE</h1> */}
           <img src={cycloagaeteH1} alt="" />
         </div>
-        <button>Rezerwuj Rower</button>
+        <Link href="/booking">
+          <button>Rezerwuj Rower</button>
+        </Link>
       </section>
       <HiChevronDoubleDown className="headerArrow" />
     </Wrapper>
@@ -47,19 +64,21 @@ const Wrapper = styled.div`
   .languages {
     position: absolute;
     top: 0;
-    left: 0;
-    background: var(--secondaryColor2);
+    left: 2%;
+    background: var(--secondaryColor);
     border-bottom: 2px solid #fff;
     border-right: 2px solid #fff;
+    border-left: 2px solid #fff;
     padding: 5px 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 999;
     border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     img {
       /* border-radius: 50%; */
-      width: 40px;
+      width: 30px;
       margin: 0 10px;
       filter: saturate(0);
       transition: 0.4s;
@@ -96,12 +115,12 @@ const Wrapper = styled.div`
       justify-content: center;
       align-items: center;
       :hover {
-        background: var(--secondaryColor);
+        background: var(--secondaryColor3);
         color: #fff;
       }
     }
     .activeNav {
-      background: var(--secondaryColor3);
+      background: var(--secondaryColor);
       color: #fff;
     }
   }

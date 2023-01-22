@@ -8,6 +8,8 @@ import { HiArrowCircleUp } from "react-icons/hi";
 
 const logo = "/images/homepage/headerImg.png";
 const headerBg = "/images/homepage/navBg.jpg";
+const polandFlag = "/images/poland-flag.png";
+const englandFlag = "/images/england-flag.png";
 
 const Navbar = () => {
   const [offset, setOffset] = useState(0);
@@ -24,8 +26,6 @@ const Navbar = () => {
 
   return (
     <Wrapper>
-      {/* LANGUAGES */}
-      {/* REZERWACJA */}
       <div
         className={
           (offset > windowHeight && router.pathname == "/") ||
@@ -34,6 +34,17 @@ const Navbar = () => {
             : "navbar none"
         }
       >
+        <Link href="/booking">
+          <a
+            className={
+              router.pathname == "/booking"
+                ? "bookingLink activeLink"
+                : "bookingLink"
+            }
+          >
+            Rezerwacja
+          </a>
+        </Link>
         <img src={logo} alt="logo" className="logo" />
         <Link href="/">
           <a className={router.pathname == "/" ? "active" : ""}>
@@ -61,6 +72,10 @@ const Navbar = () => {
             kontakt
           </a>
         </Link>
+        <div className="languages">
+          <img src={polandFlag} alt="flaga polska" />
+          <img src={englandFlag} alt="flaga angielska" />
+        </div>
       </div>
       <button
         className={offset > 200 ? "upBtn" : "upBtn upBtnNone"}
@@ -82,11 +97,11 @@ const Wrapper = styled.div`
   .navbar {
     position: fixed;
     height: 10vh;
-    width: 85vw;
+    width: 90vw;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    padding: 0 7vw 0 7vw;
+    padding: 0 5vw 0 5vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -100,7 +115,7 @@ const Wrapper = styled.div`
     h5,
     a {
       font-weight: 600;
-      height: 100%;
+      /* height: 100%; */
       display: flex;
       align-items: center;
       font-size: 1.4rem;
@@ -117,10 +132,17 @@ const Wrapper = styled.div`
         color: var(--secondaryColor3);
       }
     }
+    .bookingLink {
+      background: var(--secondaryColor3);
+      padding: 5px 15px;
+      border-radius: 5px;
+      :hover {
+        background: white;
+      }
+    }
 
     .logo {
-      margin-right: 5vw;
-      cursor: pointer;
+      /* margin-right: 3vw; */
       height: 80%;
       display: flex;
       justify-content: center;
@@ -131,6 +153,21 @@ const Wrapper = styled.div`
   .none {
     transition: 1s;
     transform: translateY(-15vh) translateX(-50%);
+  }
+  .languages {
+    border-left: 2px solid var(--secondaryColor);
+    display: flex;
+    padding-left: 20px;
+    img {
+      width: 30px;
+      margin: 0 10px;
+      filter: saturate(0);
+      transition: 0.4s;
+      cursor: pointer;
+      :hover {
+        filter: saturate(0.9);
+      }
+    }
   }
 
   .upBtn {

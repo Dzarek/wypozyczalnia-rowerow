@@ -57,8 +57,8 @@ const FirstInfo = () => {
 
 const Wrapper = styled.div`
   width: 100vw;
-  margin: 0 auto;
-  padding: 12vh 10vw 5vh;
+  margin: 5vh auto;
+  padding: 5vh 10vw 10vh;
   position: relative;
   display: flex;
   justify-content: space-between;

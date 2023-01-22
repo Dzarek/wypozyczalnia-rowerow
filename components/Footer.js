@@ -25,7 +25,7 @@ const Footer = () => {
             <MdAccessTimeFilled />
             8:00-16:00
           </h4>
-          <h3>Dane do przelewu :</h3>
+          {/* <h3>Dane do przelewu :</h3>
           <h4>
             {" "}
             <span>PLN</span> 46291000060000000003315884
@@ -33,7 +33,7 @@ const Footer = () => {
           <h4>
             {" "}
             <span>€</span> ES3101822424140201582352
-          </h4>
+          </h4> */}
         </div>
         <img src={logo} alt="logo" className="logoFooter" />
         <div className="socialMediaWrapper">
@@ -91,7 +91,6 @@ const Footer = () => {
 const Wrapper = styled.footer`
   width: 100vw;
   padding: 5vh 7vw;
-  /* height: 50vh; */
   background: #111;
   position: relative;
   display: flex;
@@ -104,7 +103,6 @@ const Wrapper = styled.footer`
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
-    /* height: 90%; */
     position: relative;
     .logoFooter {
       position: absolute;
@@ -112,12 +110,9 @@ const Wrapper = styled.footer`
       left: 50%;
       transform: translate(-50%, -50%);
       height: 15vh;
-      /* margin: 0 5vw; */
       filter: saturate(0);
     }
     .cytat {
-      /* width: 30%; */
-      /* font-weight: 500; */
       font-style: italic;
       line-height: 1.8;
       font-size: 1.4rem;
@@ -192,6 +187,7 @@ const Wrapper = styled.footer`
     flex-direction: column;
     align-items: center;
     width: 35%;
+    align-self: center;
     h4 {
       font-size: 1.2rem;
       margin-bottom: 1vh;
@@ -206,9 +202,9 @@ const Wrapper = styled.footer`
       align-self: flex-start;
       margin-left: 3vw;
       :nth-of-type(1) {
-        margin-bottom: 6vh;
+        /* margin-bottom: 6vh; */
         align-self: center;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         margin-left: 0vw;
       }
       :hover {

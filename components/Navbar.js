@@ -118,7 +118,7 @@ const Wrapper = styled.div`
       /* height: 100%; */
       display: flex;
       align-items: center;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-family: var(--headerFont);
       text-transform: uppercase;
       transition: 0.4s;

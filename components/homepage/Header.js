@@ -5,16 +5,21 @@ import { HiChevronDoubleDown } from "react-icons/hi";
 const headerImg = "/images/homepage/headerImg.png";
 const cycloagaeteH1 = "/images/homepage/cycloagaeteH1.png";
 const headerBg = "/images/homepage/2.jpg";
+const pasekBg = "/images/pasek2.png";
 const polandFlag = "/images/poland-flag.png";
 const englandFlag = "/images/england-flag.png";
 
 const Header = () => {
+  // console.log(window.innerWidth);
   return (
     <Wrapper>
-      <div className="languages">
-        <img src={polandFlag} alt="flaga polska" />
-        <img src={englandFlag} alt="flaga angielska" />
-      </div>
+      <img src={headerBg} alt="" className="headerBg" />
+      {/* <div className="navPart"></div>
+      <div className="navPart2"></div>
+      <img src={headerImg} alt="" className="headerLogo" /> */}
+      {/* <h1>{window.innerHeight}</h1>
+      <h1>{window.innerWidth}</h1> */}
+      <img src={pasekBg} alt="" className="pasek" />
       <nav>
         <Link href="/">
           <p className="activeNav">strona główna</p>
@@ -37,14 +42,14 @@ const Header = () => {
         <Link href="/contact">
           <p>kontakt</p>
         </Link>
+        <div className="languages">
+          <img src={polandFlag} alt="flaga polska" />
+          <img src={englandFlag} alt="flaga angielska" />
+        </div>
       </nav>
-      <img src={headerBg} alt="" className="headerBg" />
       <section>
-        <img src={headerImg} alt="" className="headerLogo" />
         <div className="headerTitle">
           <h2>wypożyczalnia rowerów</h2>
-          {/* <h2>bike rental</h2> */}
-          {/* <h1>CYCLOAGAETE</h1> */}
           <img src={cycloagaeteH1} alt="" />
         </div>
         <Link href="/booking">
@@ -61,23 +66,18 @@ const Wrapper = styled.div`
   width: 100vw;
   position: relative;
   overflow: hidden;
-  .languages {
+  background-color: black;
+  .pasek {
     position: absolute;
     top: 0;
-    left: 2%;
-    background: var(--secondaryColor);
-    border-bottom: 2px solid #fff;
-    border-right: 2px solid #fff;
-    border-left: 2px solid #fff;
-    padding: 5px 5px;
+    left: 0;
+    height: 126vh;
+  }
+  .languages {
+    border-left: 2px solid var(--secondaryColor);
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 999;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    padding-left: 20px;
     img {
-      /* border-radius: 50%; */
       width: 30px;
       margin: 0 10px;
       filter: saturate(0);
@@ -86,26 +86,57 @@ const Wrapper = styled.div`
       :hover {
         filter: saturate(0.9);
       }
+      :nth-of-type(1) {
+        filter: saturate(0.7);
+      }
     }
   }
-  nav {
-    width: 68vw;
-    height: 8vh;
+  .navPart {
+    width: 15vw;
+    height: 11vh;
+    background: white;
     position: absolute;
-    background-color: rgba(255, 255, 255, 1);
-    top: 32vh;
-    transform: translateY(-50%);
+    top: -1vh;
+    left: 12vw;
+    transform: rotate(-25deg);
+  }
+  .navPart2 {
+    width: 4.52vw;
+    height: 11vh;
+    background: white;
+    position: absolute;
+    top: 3.8vh;
+    left: 0;
+    transform: translateY(50%);
+  }
+  .headerLogo {
+    width: 10vw;
+    /* height: 10vh; */
+    position: absolute;
+    top: 4.2vh;
+    left: 3.8vw;
+    /* margin-right: 10vw; */
+    animation: logoAnim 2s linear infinite alternate;
+  }
+  nav {
+    width: 80vw;
+    height: 10vh;
+    position: absolute;
+    /* background-color: rgba(255, 255, 255, 1); */
+    top: 0vh;
+    /* transform: translateY(-50%); */
     right: 0;
     z-index: 999;
-    padding: 0 2vw;
+    padding: 0 5vw 0 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
+
     p {
       text-transform: uppercase;
       font-weight: 600;
       color: var(--secondaryColor);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-family: var(--headerFont);
       height: 100%;
       padding: 0 1.5vw;
@@ -129,11 +160,11 @@ const Wrapper = styled.div`
     height: 100vh;
     width: 100vw;
     position: absolute;
-    top: 0;
+    top: 0vh;
     left: 0;
     z-index: 0;
     animation: bgMove 20s linear infinite alternate;
-    filter: sepia(0.5);
+    /* filter: brightness(0.7); */
   }
   @keyframes bgMove {
     0% {
@@ -144,22 +175,21 @@ const Wrapper = styled.div`
     }
   }
   section {
-    background-color: rgba(0, 0, 0, 0.8);
+    /* background-color: rgba(0, 0, 0, 0.8); */
     height: 100vh;
     width: 100vw;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
-    .headerLogo {
-      width: 27vw;
-      /* height: 60vh; */
+    /* .headerLogo {
+      width: 15vw;
       position: absolute;
-      top: 40%;
+      top: 0%;
       left: 7%;
       transform: translateY(-50%);
       animation: logoAnim 2s linear infinite alternate;
-    }
+    } */
     @keyframes logoAnim {
       0% {
         filter: saturate(1);
@@ -184,9 +214,6 @@ const Wrapper = styled.div`
         font-family: var(--headerFont);
         letter-spacing: 3px;
       }
-      /* h1 {
-        font-size: 8rem;
-      } */
       img {
         margin-top: 5vh;
         width: 45vw;
@@ -198,10 +225,8 @@ const Wrapper = styled.div`
     bottom: 10vh;
     left: 13vw;
     padding: 15px 30px;
-    color: #fff;
-    /* color: var(--secondaryColor3); */
-    background: var(--secondaryColor);
-    background: var(--secondaryColor2);
+    color: var(--secondaryColor3);
+    background: #fff;
     text-transform: uppercase;
     font-weight: 600;
     border-radius: 10px;
@@ -211,10 +236,11 @@ const Wrapper = styled.div`
     z-index: 9999;
     cursor: pointer;
     transition: 0.4s;
+    border: 2px solid var(--secondaryColor3);
     :hover {
-      color: var(--secondaryColor2);
-      background: #fff;
-      border: 2px solid var(--secondaryColor2);
+      color: white;
+      background: var(--secondaryColor3);
+      border: 2px solid #fff;
     }
   }
   .headerArrow {

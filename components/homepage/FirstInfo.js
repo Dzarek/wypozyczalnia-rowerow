@@ -50,12 +50,7 @@ const FirstInfo = () => {
           </div>
         </div>
       </section>
-      <img
-        src={firstInfoImg}
-        alt=""
-        data-aos="fade-left"
-        data-aos-offset="100"
-      />
+      <img src={firstInfoImg} alt="" data-aos="fade-up" />
     </Wrapper>
   );
 };

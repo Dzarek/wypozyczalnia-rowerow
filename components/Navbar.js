@@ -67,6 +67,11 @@ const Navbar = () => {
         <Link href="/faq">
           <a className={router.pathname == "/faq" ? "active" : ""}>FAQ</a>
         </Link>
+        <Link href="/regulations">
+          <a className={router.pathname == "/regulations" ? "active" : ""}>
+            regulamin
+          </a>
+        </Link>
         <Link href="/contact">
           <a className={router.pathname == "/contact" ? "active" : ""}>
             kontakt

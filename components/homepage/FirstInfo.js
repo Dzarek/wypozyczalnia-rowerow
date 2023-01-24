@@ -50,7 +50,12 @@ const FirstInfo = () => {
           </div>
         </div>
       </section>
-      <img src={firstInfoImg} alt="" data-aos="fade-left" />
+      <img
+        src={firstInfoImg}
+        alt=""
+        data-aos="fade-left"
+        data-aos-offset="100"
+      />
     </Wrapper>
   );
 };
@@ -58,7 +63,7 @@ const FirstInfo = () => {
 const Wrapper = styled.div`
   width: 100vw;
   margin: 5vh auto;
-  padding: 5vh 10vw 10vh;
+  padding: 0vh 10vw 10vh;
   position: relative;
   display: flex;
   justify-content: space-between;

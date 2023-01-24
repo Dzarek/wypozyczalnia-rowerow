@@ -8,7 +8,8 @@ import {
 import { VscDebugBreakpointData } from "react-icons/vsc";
 import Link from "next/link";
 
-const rowerImg = "/images/bikes/rower.jpg";
+import { bikesArray } from "../../public/data";
+// const rowerImg = "/images/bikes/rower.jpg";
 
 const ShortBikes = () => {
   return (
@@ -33,55 +34,44 @@ const ShortBikes = () => {
         arrowLeft={<MdOutlineArrowBackIos className="arrow" />}
         arrowRight={<MdOutlineArrowForwardIos className="arrow" />}
       >
-        <div className="oneBike">
-          <h3>CANNONDALE CAAD 12 shimano 105 – 2019</h3>
-          <section>
-            <img src={rowerImg} alt="nazwa" />
-            <div className="info">
-              <h4>Dane techniczne:</h4>
-              <ul>
-                <li>
-                  <VscDebugBreakpointData />
-                  Rama: CAAD12, SmartForm C1 Premium Alloy, SAVE
-                </li>
-                <li>
-                  <VscDebugBreakpointData />
-                  Osprzęt: Shimano 105
-                </li>
-                <li>
-                  <VscDebugBreakpointData />
-                  Kaseta: 11-30 Shimano 105
-                </li>
-                <li>
-                  <VscDebugBreakpointData />
-                  Koła: Fulcrum Racing Sport
-                </li>
-                <li>
-                  <VscDebugBreakpointData />
-                  Opony: Vittoria Zaffiro Pro Slick 25 mm
-                </li>
+        {bikesArray.map((item, index) => {
+          const { name, img, details, info, size, prices } = item;
+          return (
+            <div key={index} className="oneBike">
+              <h3>{name}</h3>
+              <section>
+                <img src={img} alt={name} />
+                <div className="info">
+                  <h4>Dane techniczne:</h4>
+                  <ul>
+                    {details.map((item, index) => {
+                      return (
+                        <li key={index}>
+                          <VscDebugBreakpointData />
+                          {item}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <h4>Opis:</h4>
+                  <p>{info}</p>
+                  <h4>Rozmiar ramy:</h4>
+                  <p>
+                    <VscDebugBreakpointData />
+                    {size}
+                  </p>
+                </div>
+              </section>
+              <ul className="prices">
+                <li>1 dzień - {prices.one} €</li>
+                <li>2-5 dni - {prices.twoFive} €/dzień</li>
+                <li>6-12 dni - {prices.sixTwelvel} €/dzień</li>
+                <li>13 dni - {prices.thirteen} €/dzień</li>
               </ul>
-              <h4>Opis:</h4>
-              <p>
-                Cannondale Caad 12 na rok 2019 to rower oparty na klasycznej
-                lekkiej aluminiowej ramie (1100 gram). Wyposażony w kasetę o
-                rozpiętości 11-30 zębów oraz wygodne siodło Prologo.
-              </p>
-              <h4>Rozmiar ramy:</h4>
-              <p>
-                <VscDebugBreakpointData />
-                56
-              </p>
+              <button className="order">Zamów teraz</button>
             </div>
-          </section>
-          <ul className="prices">
-            <li>1 dzień - 26 €</li>
-            <li>2-5 dni - 23 €/dzień</li>
-            <li>6-12 dni - 20 €/dzień</li>
-            <li>13 dni - 17 €/dzień</li>
-          </ul>
-          <button className="order">Zamów teraz</button>
-        </div>
+          );
+        })}
       </Carousel>
       <Link href="/bikes">
         <p className="linkToBikes">Zobacz wszystkie</p>

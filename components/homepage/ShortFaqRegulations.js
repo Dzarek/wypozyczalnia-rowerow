@@ -159,12 +159,12 @@ const Wrapper = styled.div`
         align-items: center;
         width: 50%;
         h3 {
-          display: flex;
+          /* display: flex;
           align-items: flex-end;
-          justify-content: center;
+          justify-content: center; */
           svg {
             margin-left: 10px;
-            margin-bottom: 2px;
+            margin-bottom: -5px;
             color: var(--secondaryColor3);
           }
         }

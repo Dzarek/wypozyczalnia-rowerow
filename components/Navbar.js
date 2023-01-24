@@ -52,7 +52,7 @@ const Navbar = () => {
           </a>
         </Link>
         <Link href="/bikes">
-          <a className={router.pathname == "/rowery" ? "active" : ""}>rowery</a>
+          <a className={router.pathname == "/bikes" ? "active" : ""}>rowery</a>
         </Link>
         <Link href="/roads">
           <a className={router.pathname == "/roads" ? "active" : ""}>

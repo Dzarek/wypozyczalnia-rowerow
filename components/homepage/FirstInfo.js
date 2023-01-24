@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+// import Aos from "aos";
+// import "aos/dist/aos.css";
+// import { useEffect } from "react";
 
 import { RiTruckLine, RiTimeLine, RiTeamLine } from "react-icons/ri";
 
 const firstInfoImg = "/images/homepage/firstInfoImg.png";
 
 const FirstInfo = () => {
-  useEffect(() => {
-    Aos.init({ duration: 1000, disable: "false" });
-  }, []);
+  // useEffect(() => {
+  //   Aos.init({ duration: 1000, disable: "false" });
+  // }, []);
   return (
     <Wrapper>
       <section>
@@ -50,7 +50,8 @@ const FirstInfo = () => {
           </div>
         </div>
       </section>
-      <img src={firstInfoImg} alt="" data-aos="fade-up" />
+      {/* <img src={firstInfoImg} alt="" data-aos="fade-left" /> */}
+      <img src={firstInfoImg} alt="" />
     </Wrapper>
   );
 };

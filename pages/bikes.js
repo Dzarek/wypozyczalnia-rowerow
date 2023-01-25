@@ -1,19 +1,25 @@
 import styled from "styled-components";
 import Head from "next/head";
 // import Link from "next/link";
+import { bikesArray } from "../public/data";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 import { VscDebugBreakpointData } from "react-icons/vsc";
 import { BiWinkSmile } from "react-icons/bi";
-import { bikesArray } from "../public/data";
 
 const bikeVideo = "/images/bikes/bikeVideo.mp4";
 const headerSVG = "/images/bikes/headerSVG.png";
 
 const Bikes = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000, disable: "false" });
+  }, []);
   return (
     <>
       <Head>
         <title>Cycloagaete | Rowery</title>
-        <meta name="description" content="..." />
+        <meta name="description" content="Cycloagaete - Rowery" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
@@ -43,7 +49,7 @@ const Bikes = () => {
           {bikesArray.map((item, index) => {
             const { name, img, details, info, size, prices } = item;
             return (
-              <article key={index}>
+              <article key={index} data-aos="fade-up">
                 <span>{index + 1}</span>
                 <div className="oneBike">
                   <h3>{name}</h3>
@@ -91,7 +97,6 @@ const Wrapper = styled.div`
   width: 100vw;
   min-height: 80vh;
   margin: 0 auto;
-  /* padding: 15vh 0vw; */
   position: relative;
   header {
     width: 100vw;
@@ -106,9 +111,7 @@ const Wrapper = styled.div`
       left: 0%;
       width: 50%;
       height: 80%;
-      /* transform: translate(-50%, -50%); */
       object-fit: cover;
-      /* filter: sepia(0.6) brightness(1); */
     }
     img {
       object-fit: cover;
@@ -183,7 +186,6 @@ const Wrapper = styled.div`
     section {
       display: flex;
       justify-content: space-around;
-      /* flex-direction: row-reverse; */
       align-items: center;
       font-weight: 500;
       img {

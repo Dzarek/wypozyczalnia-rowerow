@@ -7,7 +7,7 @@ import { RiTruckLine, RiTimeLine, RiTeamLine } from "react-icons/ri";
 
 const firstInfoImg = "/images/homepage/firstInfoImg.png";
 
-const FirstInfo = () => {
+const AboutUs = () => {
   useEffect(() => {
     Aos.init({ duration: 1000, disable: "false" });
   }, []);
@@ -51,7 +51,6 @@ const FirstInfo = () => {
         </div>
       </section>
       <img src={firstInfoImg} alt="" data-aos="fade-left" />
-      {/* <img src={firstInfoImg} alt="" /> */}
     </Wrapper>
   );
 };
@@ -115,4 +114,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default FirstInfo;
+export default AboutUs;

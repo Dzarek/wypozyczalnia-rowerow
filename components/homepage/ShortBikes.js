@@ -81,13 +81,16 @@ const ShortBikes = () => {
 };
 
 const Wrapper = styled.div`
-  padding-bottom: 5vh;
+  margin-bottom: 5vh;
   .title h2 {
     color: #444;
   }
   .carousel {
     width: 80vw;
     margin: 7vh auto 3vh;
+    height: 70vh;
+    /* @media screen and (max-width: 1600px) {
+    } */
   }
   .arrow {
     font-size: 2rem;

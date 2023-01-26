@@ -34,6 +34,7 @@ body {
     --secondaryColor: #d9992a;
     --secondaryColor2: #dc9416;
     --secondaryColor3: #af7512;
+    --secondaryColorBg: #ece1d0;
     --bikeVideoBg: #d7cfc1;
     --textFont: 'EB Garamond', serif;
     --titleFont: 'Poppins', sans-serif;
@@ -45,6 +46,8 @@ body {
     font-family: var(--textFont);
     position: relative;
 }
+
+
 
 
 .mainPage {

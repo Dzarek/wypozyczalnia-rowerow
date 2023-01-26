@@ -51,6 +51,7 @@ const AboutUs = () => {
         </div>
       </section>
       <img src={firstInfoImg} alt="" data-aos="fade-left" />
+      {/* <img src={firstInfoImg} alt="" /> */}
     </Wrapper>
   );
 };
@@ -63,6 +64,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   section {
     width: 50vw;
     text-align: left;

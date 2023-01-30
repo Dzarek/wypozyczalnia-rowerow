@@ -3,55 +3,66 @@ import { useState } from "react";
 import { FaGooglePlay, FaAppStore } from "react-icons/fa";
 import { roadsArray } from "../public/data";
 import OneRoad from "../components/OneRoad";
+import Head from "next/head";
 
 const compasImg = "/images/roads/compas.png";
 
 const Roads = () => {
   const [activeRoad, setActiveRoad] = useState(false);
   return (
-    <Wrapper className="mainPage">
-      <div className="firstInfo">
-        <h3>
-          Poniżej znajdziesz kilka tras rowerowych, które z gorącego serca
-          polecamy. <br /> Aby z nich łatwo skorzystać zainstaluj aplikację{" "}
-          <span>Mapy.cz</span> z sklep play lub app store.
-        </h3>
-        <section>
-          <a href="https://play.google.com/store/apps/details?id=cz.seznam.mapy&hl=pl&gl=US">
-            <FaGooglePlay />
-          </a>
-          <a href="https://apps.apple.com/pl/app/mapy-cz-navigation-maps/id411411020?l=pl">
-            <FaAppStore />
-          </a>
-        </section>
-      </div>
-      <div className="bigContent">
-        <div className="title">
-          <h2>Wybierz trasę</h2>
+    <>
+      <Head>
+        <title>Cycloagaete | Polecane trasy</title>
+        <meta name="description" content="Cycloagaete - Polecane trasy" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
+        <link rel="shortcut icon" href="/logo192.png" />
+      </Head>
+      <Wrapper className="mainPage">
+        <div className="firstInfo">
+          <h3>
+            Poniżej znajdziesz kilka tras rowerowych, które z gorącego serca
+            polecamy. <br /> Aby z nich łatwo skorzystać zainstaluj aplikację{" "}
+            <span>Mapy.cz</span> z sklep play lub app store.
+          </h3>
+          <section>
+            <a href="https://play.google.com/store/apps/details?id=cz.seznam.mapy&hl=pl&gl=US">
+              <FaGooglePlay />
+            </a>
+            <a href="https://apps.apple.com/pl/app/mapy-cz-navigation-maps/id411411020?l=pl">
+              <FaAppStore />
+            </a>
+          </section>
         </div>
-        <div className="content">
-          <img src={compasImg} className="bg" />
-          {roadsArray.map((item, index) => {
-            const { name, image, distance } = item;
-            return (
-              <div
-                onClick={() => setActiveRoad(item)}
-                key={index}
-                className="oneRoad"
-              >
-                <img src={image} alt="" />
-                <h4>{name}</h4>
-                <p>dystans: {distance} km</p>
-                <button>Zobacz</button>
-              </div>
-            );
-          })}
+        <div className="bigContent">
+          <div className="title">
+            <h2>Wybierz trasę</h2>
+          </div>
+          <div className="content">
+            <img src={compasImg} className="bg" />
+            {roadsArray.map((item, index) => {
+              const { name, image, distance } = item;
+              return (
+                <div
+                  onClick={() => setActiveRoad(item)}
+                  key={index}
+                  className="oneRoad"
+                >
+                  <img src={image} alt="" />
+                  <h4>{name}</h4>
+                  <p>dystans: {distance} km</p>
+                  <button>Zobacz</button>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-      {activeRoad && (
-        <OneRoad activeRoad={activeRoad} setActiveRoad={setActiveRoad} />
-      )}
-    </Wrapper>
+        {activeRoad && (
+          <OneRoad activeRoad={activeRoad} setActiveRoad={setActiveRoad} />
+        )}
+      </Wrapper>
+    </>
   );
 };
 

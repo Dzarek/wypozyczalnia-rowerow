@@ -13,6 +13,8 @@ import {
 import { MdExpandMore } from "react-icons/md";
 import Head from "next/head";
 
+const questionImg = "/images/questionImg.png";
+
 const Faq = () => {
   useEffect(() => {
     Aos.init({ duration: 1000, disable: "mobile" });
@@ -66,6 +68,7 @@ const Faq = () => {
           <h2>Najczęściej zadawane pytania</h2>
         </div>
         <div className="content">
+          <img src={questionImg} alt="" />
           <Accordion allowZeroExpanded={true}>
             {questions.map((oneInfo) => {
               const { title, info, id } = oneInfo;
@@ -108,31 +111,28 @@ const Wrapper = styled.div`
     }
   }
   .content {
-    width: 85vw;
+    width: 70vw;
     margin: 10vh auto 0;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
     padding-bottom: 15vh;
-    /* img {
-      height: 50vh;
-      width: 20vw;
-      opacity: 0.7;
-      margin-top: 5vh;
-      filter: sepia(0.8);
-    } */
+    img {
+      height: 45vh;
+      opacity: 0.8;
+      animation: imgRotate 3s infinite alternate;
+    }
+    @keyframes imgRotate {
+      100% {
+        transform: scale(1.1);
+      }
+    }
     @media screen and (max-width: 800px) {
       flex-direction: column;
       align-items: center;
-      /* img {
-        height: 20vh;
-        width: auto;
-        margin-top: 0;
-        margin-bottom: 5vh;
-        :nth-of-type(2) {
-          display: none;
-        }
-      } */
+      img {
+        display: none;
+      }
     }
 
     .accordion__panel {
@@ -170,7 +170,7 @@ const Wrapper = styled.div`
 
     .singleQuestion {
       margin: 2vh auto;
-      width: 50vw;
+      width: 45vw;
       background: #fff;
       /* color: var(--secondaryColor2); */
       border-radius: 5px;

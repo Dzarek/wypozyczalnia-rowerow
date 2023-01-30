@@ -1,9 +1,16 @@
 import styled from "styled-components";
-import { IoClose, IoMap, IoTimeOutline } from "react-icons/io5";
+import { IoClose, IoTimeOutline } from "react-icons/io5";
+import { FaLocationArrow } from "react-icons/fa";
 import { GiPathDistance } from "react-icons/gi";
+import { useState } from "react";
+import { roadsArray } from "../public/data";
 
 const OneRoad = ({ activeRoad, setActiveRoad }) => {
-  const { image, name, distance, linkToMap, time, info } = activeRoad;
+  const [controlMap, setControlMap] = useState(false);
+
+  const { id, image, name, distance, time, info, navigation } = activeRoad;
+  const selectedRoad = roadsArray.find((item) => item.id === id);
+  const mapLink = selectedRoad.linkToMap;
   return (
     <Wrapper>
       <IoClose onClick={() => setActiveRoad(false)} className="closeIcon" />
@@ -18,9 +25,35 @@ const OneRoad = ({ activeRoad, setActiveRoad }) => {
             <IoTimeOutline /> {time} h
           </span>
         </section>
-        <a href={linkToMap}>
-          <IoMap className="mapIcon" />
-          Link do MAPY.CZ
+        <div className="map">
+          <div className={controlMap ? "overlayExtra" : "overlay"}></div>
+          <iframe
+            src={mapLink}
+            title="mapa"
+            allowfullscreen=""
+            loading="lazy"
+            height="400"
+            width="100%"
+          ></iframe>
+          {!controlMap ? (
+            <button
+              className="mapButton navButton"
+              onClick={() => setControlMap(true)}
+            >
+              włącz mapę
+            </button>
+          ) : (
+            <button
+              className="mapButton navButton"
+              onClick={() => setControlMap(false)}
+            >
+              wyłącz mapę
+            </button>
+          )}
+        </div>
+        <a href={navigation}>
+          <FaLocationArrow className="mapIcon" />
+          Rozpocznij
         </a>
         <p>{info}</p>
       </div>
@@ -77,6 +110,59 @@ const Wrapper = styled.div`
       height: 50vh;
       object-fit: cover;
     }
+    .map {
+      width: 90%;
+      margin: 5vh auto;
+      position: relative;
+      @media screen and (max-width: 800px) {
+        width: 100%;
+      }
+      iframe {
+        border: 2px solid var(--secondaryColor);
+      }
+      .overlay {
+        position: absolute;
+        width: 100%;
+        height: 400px;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        @media screen and (max-width: 800px) {
+          display: none;
+        }
+      }
+      .overlayExtra {
+        z-index: -1;
+        @media screen and (max-width: 800px) {
+          display: none;
+        }
+      }
+      .mapButton {
+        position: absolute;
+        top: 5%;
+        left: 2%;
+        z-index: 9;
+        background: var(--secondaryColor3);
+        padding: 10px;
+        border: 2px solid white;
+        border-radius: 5px;
+        color: white;
+        font-family: var(--headerFont);
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.4s;
+        :hover {
+          background: white;
+          border: 2px solid var(--secondaryColor3);
+          color: var(--secondaryColor3);
+        }
+        @media screen and (max-width: 800px) {
+          display: none;
+        }
+      }
+    }
     a {
       text-decoration: none;
       color: white;
@@ -84,15 +170,16 @@ const Wrapper = styled.div`
       transition: 0.4s;
       display: flex;
       align-items: center;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       padding: 10px 20px;
       background: var(--secondaryColor3);
       border-radius: 5px;
+      font-family: var(--headerFont);
       :hover {
         transform: scale(1.1);
       }
       .mapIcon {
-        font-size: 3rem;
+        font-size: 1.5rem;
         margin-right: 10px;
       }
     }
@@ -101,7 +188,8 @@ const Wrapper = styled.div`
       flex-direction: row;
       align-items: center;
       justify-content: center;
-
+      background: #fff;
+      width: 100%;
       span {
         display: flex;
         flex-direction: row;
@@ -117,7 +205,7 @@ const Wrapper = styled.div`
       }
     }
     h3 {
-      margin: 0vh auto 3vh;
+      margin: 0vh auto;
       text-transform: uppercase;
       font-size: 1.8rem;
       color: var(--secondaryColor2);
@@ -126,9 +214,6 @@ const Wrapper = styled.div`
       text-align: center;
       background: #fff;
       width: 100%;
-      @media screen and (max-width: 800px) {
-        padding: 0 2vw;
-      }
     }
     p {
       padding: 0 3vw;

@@ -45,7 +45,7 @@ const Header = () => {
           <h2>wypożyczalnia rowerów</h2>
           <img src={cycloagaeteH1} alt="" />
         </div>
-        <Link href="/booking">
+        <Link href="/reservation">
           <button>Rezerwuj Rower</button>
         </Link>
       </section>

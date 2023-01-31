@@ -34,10 +34,10 @@ const Navbar = () => {
             : "navbar none"
         }
       >
-        <Link href="/booking">
+        <Link href="/reservation">
           <a
             className={
-              router.pathname == "/booking"
+              router.pathname == "/reservation"
                 ? "bookingLink activeLink"
                 : "bookingLink"
             }

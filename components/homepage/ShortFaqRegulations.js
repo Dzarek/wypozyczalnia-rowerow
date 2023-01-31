@@ -23,7 +23,7 @@ const ShortFaqRegulations = () => {
           </div>
           <div className="oneStep">
             <span>2</span>
-            <h4>zobacz rowery</h4>
+            <h4>wybierz rower</h4>
             <TbEye />
           </div>
           <div className="oneStep">
@@ -48,7 +48,7 @@ const ShortFaqRegulations = () => {
           </div>
         </div>
         <h3> Przekonaj się o tym sam przechodząc do panelu rezerwacji.</h3>
-        <Link href="/booking">Rezerwuj Rower</Link>
+        <Link href="/reservation">Rezerwuj Rower</Link>
         <div className="faqReg">
           <section>
             <h3>Przed dokonaniem rezerwacji zapoznaj się z regulaminem!</h3>

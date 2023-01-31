@@ -191,8 +191,9 @@ const Wrapper = styled.div`
       margin: 1vh 5vw;
       font-weight: 600;
       text-decoration: none;
-      transition: 0.5s;
+
       color: var(--primaryColor);
+
       @media screen and (max-width: 1700px) {
         font-size: 1.3rem;
       }
@@ -204,14 +205,22 @@ const Wrapper = styled.div`
 
       span {
         color: var(--secondaryColor3);
+        transition: 0.5s;
+        :hover {
+          color: var(--secondaryColor);
+          letter-spacing: 1px;
+        }
       }
     }
 
-    article .a {
-      margin: 2vh auto;
-      transition: 0.5s;
-      color: white;
-      :hover {
+    .a {
+      margin: 1vh auto;
+      span {
+        transition: 0.5s;
+        :hover {
+          color: var(--secondaryColor);
+          letter-spacing: 1px;
+        }
       }
     }
   }
@@ -251,6 +260,10 @@ const Wrapper = styled.div`
       color: var(--secondaryColor3);
       display: flex;
       align-items: center;
+      :hover {
+        color: var(--secondaryColor);
+        letter-spacing: 1px;
+      }
       @media screen and (max-width: 800px) {
         margin: 1vh auto 1vh;
         width: 90vw;

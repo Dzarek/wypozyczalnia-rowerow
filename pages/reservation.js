@@ -100,6 +100,81 @@ const Reservation = () => {
               </Carousel>
             </div>
           </section>
+          <section className="oneSection formSection">
+            <span className="numberSection">3.</span>
+            <div className="details">
+              <h3 className="sectionName">Wypełnij formularz</h3>
+              <p className="sectionInfo">
+                Uzupełnij formularz swoimi danymi. Wybierz dogodny dla siebie
+                czas i miejsce odbioru sprzętu.
+              </p>
+              <div className="formInput inputName">
+                <label htmlFor="name">Imię i Nazwisko</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+              <div className="inputs">
+                <div className="formInput">
+                  <label htmlFor="email">E-mail</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="formInput">
+                  <label htmlFor="phone">Telefon</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    minLength={9}
+                    maxLength={12}
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="formInput">
+                <label htmlFor="message">Twoje uwagi...</label>
+                <textarea
+                  name="message"
+                  required
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                ></textarea>
+              </div>
+              <div className="labelCookieContainer">
+                <label className="labelCheck" htmlFor="accept">
+                  <p>
+                    <input
+                      type="checkbox"
+                      id="accept"
+                      name="accept"
+                      required
+                      checked={box}
+                      onChange={() => setBox(!box)}
+                    />
+                    Wyrażam zgodę na przetwarzanie danych osobowych w celu
+                    odpowiedzi na mojego e-maila
+                    <span
+                      onClick={() => setVisibleCookie(true)}
+                      className="cookieLink"
+                    >
+                      (Polityka Prywatności).
+                    </span>
+                  </p>
+                </label>
+              </div>
+            </div>
+          </section>
         </form>
       </Wrapper>
     </>
@@ -164,6 +239,20 @@ const Wrapper = styled.div`
     .oneBike {
       width: 95%;
       margin-top: 3vh;
+    }
+  }
+  .formSection {
+    .sectionInfo {
+      margin-bottom: 3vh;
+    }
+    .inputs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .formInput {
+      display: flex;
+      flex-direction: column;
     }
   }
 `;

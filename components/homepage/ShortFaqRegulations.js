@@ -61,7 +61,7 @@ const ShortFaqRegulations = () => {
               Tutaj znajdziesz odpowiedzi na te, które są najczęściej zadawane{" "}
               <BiWinkSmile />
             </h3>
-            <Link href="/regulations">FAQ</Link>
+            <Link href="/faq">FAQ</Link>
           </section>
         </div>
       </div>

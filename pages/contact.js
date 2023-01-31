@@ -137,14 +137,14 @@ const Wrapper = styled.div`
 
   .contactContainer {
     position: relative;
-    width: 85vw;
+    width: 90vw;
     margin: 10vh auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 
     section {
-      width: 47%;
+      width: 49%;
     }
 
     .contactForm,

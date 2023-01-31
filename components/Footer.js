@@ -15,25 +15,16 @@ const Footer = () => {
   return (
     <Wrapper>
       <div className="content">
-        {/* <p className="cytat">
-          Życie jest jak jazda na rowerze. <br /> Żeby utrzymać równowagę musisz
-          się poruszać naprzód. <br /> - Albert Einstein
-        </p> */}
         <div className="bankDetails">
           <h3>Godziny pracy biura :</h3>
           <h4>
             <MdAccessTimeFilled />
             8:00-16:00
           </h4>
-          {/* <h3>Dane do przelewu :</h3>
-          <h4>
-            {" "}
-            <span>PLN</span> 46291000060000000003315884
-          </h4>
-          <h4>
-            {" "}
-            <span>€</span> ES3101822424140201582352
-          </h4> */}
+          <p className="cytat">
+            Życie jest jak jazda na rowerze. <br /> Żeby utrzymać równowagę
+            musisz się poruszać naprzód. <br /> - Albert Einstein
+          </p>
         </div>
         <img src={logo} alt="logo" className="logoFooter" />
         <div className="socialMediaWrapper">
@@ -63,14 +54,6 @@ const Footer = () => {
             </span>
           </h4>
         </div>
-
-        {/* <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4185.385869082698!2d-15.703949287680176!3d28.10152308590123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc408b6ed78d535b%3A0xd8fa937f91bbf379!2sC.%20Jos%C3%A9%20Berm%C3%BAdez%2C%205%2C%2035480%20Agaete%2C%20Las%20Palmas%2C%20Hiszpania!5e0!3m2!1spl!2spl!4v1674217837512!5m2!1spl!2spl"
-          className="map"
-          title="mapa"
-          allowfullscreen=""
-          loading="lazy"
-        ></iframe> */}
       </div>
 
       <p className="allRights">
@@ -114,11 +97,13 @@ const Wrapper = styled.footer`
     }
     .cytat {
       font-style: italic;
-      line-height: 1.8;
-      font-size: 1.4rem;
+      line-height: 1.5;
+      font-size: 1.2rem;
       align-self: center;
       text-align: center;
       font-family: var(--headerFont);
+      margin-top: 5vh;
+      letter-spacing: 1px;
     }
   }
   .allRights {
@@ -142,7 +127,7 @@ const Wrapper = styled.footer`
     width: 30%;
     a,
     h4 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 1.5vh;
       font-weight: 500;
       text-decoration: none;
@@ -167,18 +152,12 @@ const Wrapper = styled.footer`
   h3 {
     margin-bottom: 3vh;
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-family: var(--titleFont);
     font-weight: 700;
     text-align: center;
   }
-  /* .map {
-    width: 30%;
-    height: 90%;
-    filter: sepia(0.5);
-    border: 2px solid var(--secondaryColor);
-    border-radius: 5px;
-  } */
+
   .bankDetails {
     /* h3 {
       margin-bottom: 5vh;
@@ -189,7 +168,7 @@ const Wrapper = styled.footer`
     width: 35%;
     align-self: center;
     h4 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 1vh;
       font-weight: 500;
       color: white;
@@ -204,7 +183,7 @@ const Wrapper = styled.footer`
       :nth-of-type(1) {
         /* margin-bottom: 6vh; */
         align-self: center;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin-left: 0vw;
       }
       :hover {

@@ -118,7 +118,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     padding-bottom: 15vh;
     img {
-      height: 45vh;
+      height: 40vh;
       opacity: 0.8;
       animation: imgRotate 3s infinite alternate;
     }

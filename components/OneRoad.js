@@ -127,15 +127,15 @@ const Wrapper = styled.div`
         top: 0;
         left: 0;
         z-index: 1;
-        @media screen and (max-width: 800px) {
+        /* @media screen and (max-width: 800px) {
           display: none;
-        }
+        } */
       }
       .overlayExtra {
         z-index: -1;
-        @media screen and (max-width: 800px) {
+        /* @media screen and (max-width: 800px) {
           display: none;
-        }
+        } */
       }
       .mapButton {
         position: absolute;
@@ -158,9 +158,9 @@ const Wrapper = styled.div`
           border: 2px solid var(--secondaryColor3);
           color: var(--secondaryColor3);
         }
-        @media screen and (max-width: 800px) {
+        /* @media screen and (max-width: 800px) {
           display: none;
-        }
+        } */
       }
     }
     a {

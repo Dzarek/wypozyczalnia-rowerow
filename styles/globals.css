@@ -76,6 +76,7 @@ body {
     color: var(--secondaryColor);
     text-transform: uppercase;
     letter-spacing: 5px;
+    text-align: center;
 }
 
 
@@ -240,5 +241,18 @@ html::-webkit-scrollbar-thumb:hover {
         margin-right: 0vw;
         font-size: 4rem;
         margin-bottom: 4vh;
+    }
+}
+
+.titleLine {
+    background: var(--secondaryColor);
+    height: 2px;
+    width: 0;
+    animation: growLine 3s ease 1 forwards;
+}
+
+@keyframes growLine {
+    100% {
+        width: 35vw;
     }
 }

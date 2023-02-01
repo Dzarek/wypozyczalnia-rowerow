@@ -63,9 +63,11 @@ const Faq = () => {
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="shortcut icon" href="/logo192.png" />
       </Head>
-      <Wrapper className="mainPage">
+      <Wrapper>
         <div className="title">
+          <div className="titleLine2"></div>
           <h2>Najczęściej zadawane pytania</h2>
+          <div className="titleLine2"></div>
         </div>
         <div className="content">
           <img src={questionImg} alt="" />
@@ -102,12 +104,29 @@ const Faq = () => {
 };
 
 const Wrapper = styled.div`
-  /* background-color: var(--secondaryColorBg); */
+  width: 100vw;
+  min-height: 80vh;
+  margin: 0 auto;
+  padding: 10vh 0 0;
+  position: relative;
 
   .title {
     margin: 10vh auto;
+    justify-content: space-between;
+
     h2 {
       color: var(--secondaryColor3);
+    }
+    .titleLine2 {
+      background: var(--secondaryColor);
+      height: 2px;
+      width: 0;
+      animation: growLine2 3s ease 1 forwards;
+      @keyframes growLine2 {
+        100% {
+          width: 25vw;
+        }
+      }
     }
   }
   .content {

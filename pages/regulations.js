@@ -19,9 +19,11 @@ const Regulations = () => {
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="shortcut icon" href="/logo192.png" />
       </Head>
-      <Wrapper className="mainPage">
+      <Wrapper>
         <div className="title">
+          <div className="titleLine2"></div>
           <h2>Regulamin wypożyczenia roweru</h2>
+          <div className="titleLine2"></div>
         </div>
         <HiShieldExclamation className="exclamation" data-aos="zoom-in" />
         <div className="content">
@@ -151,8 +153,26 @@ const Regulations = () => {
 };
 
 const Wrapper = styled.div`
+  width: 100vw;
+  min-height: 80vh;
+  margin: 0 auto;
+  padding: 10vh 0 0;
+  position: relative;
   .title {
     margin: 10vh auto;
+    justify-content: space-between;
+
+    .titleLine2 {
+      background: var(--secondaryColor);
+      height: 2px;
+      width: 0;
+      animation: growLine3 3s ease 1 forwards;
+      @keyframes growLine3 {
+        100% {
+          width: 25vw;
+        }
+      }
+    }
   }
   .exclamation {
     font-size: 8rem;

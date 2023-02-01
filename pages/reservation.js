@@ -11,6 +11,11 @@ import {
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { GiReceiveMoney } from "react-icons/gi";
+import { TbArrowBack } from "react-icons/tb";
+import { FaSmileWink } from "react-icons/fa";
 
 let minDate = new Date().toISOString().slice(0, 10);
 
@@ -39,6 +44,10 @@ const Reservation = () => {
   useEffect(() => {
     setDaysNumber(new Date(dateEnd).getDate() - new Date(dateStart).getDate());
   }, [dateStart, dateEnd]);
+
+  useEffect(() => {
+    Aos.init({ duration: 1000, disable: "mobile" });
+  }, []);
 
   const pedals = [
     "własne",
@@ -71,12 +80,14 @@ const Reservation = () => {
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="shortcut icon" href="/logo192.png" />
       </Head>{" "}
-      <Wrapper className="mainPage">
+      <Wrapper>
         <div className="title">
+          <div className="titleLine"></div>
           <h2>Rezerwacja</h2>
+          <div className="titleLine"></div>
         </div>
         <form className="content">
-          <section className="oneSection">
+          <section className="oneSection" data-aos="fade-up">
             <span className="numberSection">1.</span>
             <div className="details">
               <h3 className="sectionName">Zapoznaj się z regulaminem</h3>
@@ -104,7 +115,7 @@ const Reservation = () => {
               </div>
             </div>
           </section>
-          <section className="oneSection">
+          <section className="oneSection" data-aos="fade-up">
             <span className="numberSection">2.</span>
             <div className="details">
               <h3 className="sectionName">Wybierz dla siebie rower</h3>
@@ -142,13 +153,13 @@ const Reservation = () => {
               </Carousel>
             </div>
           </section>
-          <section className="oneSection formSection">
+          <section className="oneSection formSection" data-aos="fade-up">
             <span className="numberSection">3.</span>
             <div className="details">
               <h3 className="sectionName">Wypełnij formularz</h3>
               <p className="sectionInfo">
                 Uzupełnij formularz swoimi danymi. Wybierz dogodny dla siebie
-                czas i miejsce odbioru sprzętu.
+                czas odbioru sprzętu oraz dodatki.
               </p>
               <div className="formContainer">
                 <div className="formInput inputName">
@@ -290,7 +301,74 @@ const Reservation = () => {
                     </p>
                   </label>
                 </div>
+                <>
+                  {status === "SUCCESS" ? (
+                    <p className="messageAlert">Wiadomość wysłana! </p>
+                  ) : (
+                    <button className="sendBtn">Wyślij</button>
+                  )}
+                  {status === "ERROR" && (
+                    <p className="messageAlert">ups... coś poszło nie tak!</p>
+                  )}
+                </>
               </div>
+            </div>
+          </section>
+          <section className="oneSection" data-aos="fade-up">
+            <span className="numberSection">4.</span>
+            <div className="details">
+              <h3 className="sectionName">Opłać rezerwację</h3>
+              <p className="sectionInfo">
+                Gdy prześlesz do nas formularz rezerwacyjny odpowiemy
+                najszybciej jak to będzie możliwe. Jeśli rowery będą dostępne w
+                wybranym przez Ciebie terminie, dostaniesz informacje dotyczące
+                płatności.
+              </p>
+              <GiReceiveMoney className="paySvg" />
+            </div>
+          </section>
+          <section className="oneSection" data-aos="fade-up">
+            <span className="numberSection">5.</span>
+            <div className="details">
+              <h3 className="sectionName">Odbierz sprzęt</h3>
+              <p className="sectionInfo">
+                Po opłaceniu rezerwacji, potwierdzeniu Twojej tożsamości i
+                podpisaniu umowy przekażemy Ci zamówiony sprzęt. <br /> Odbiór
+                pod addresem naszej siedziby:{" "}
+                <span>
+                  {" "}
+                  Calle Maestro Jose Bermudez 5, 1G 35480 Agaete, Las Palmas de
+                  Gran Canaria, Hiszpania{" "}
+                </span>
+              </p>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4185.385869082698!2d-15.703949287680176!3d28.10152308590123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc408b6ed78d535b%3A0xd8fa937f91bbf379!2sC.%20Jos%C3%A9%20Berm%C3%BAdez%2C%205%2C%2035480%20Agaete%2C%20Las%20Palmas%2C%20Hiszpania!5e0!3m2!1spl!2spl!4v1674217837512!5m2!1spl!2spl"
+                className="map"
+                title="mapa"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>{" "}
+            </div>
+          </section>
+          <section className="oneSection" data-aos="fade-up">
+            <span className="numberSection">6.</span>
+            <div className="details">
+              <h3 className="sectionName">Zwróć sprzęt</h3>
+              <p className="sectionInfo">
+                Gdy już zakończysz swoją podróż rowerem, zwróć komplet sprzętu
+                do nas.
+              </p>
+              <TbArrowBack className="paySvg" />
+            </div>
+          </section>
+          <section className="oneSection">
+            <div className="details">
+              <h3 className="sectionName lastSectionName">To już wszystko !</h3>
+              <p className="sectionInfo lastSection">
+                Ekipa Cycloagaete życzy Tobie/Wam udanej zabawy. Mamy nadzieję,
+                że nasze usługi spełnią wszelkie oczekiwania. <br /> <br />{" "}
+                POWODZENIA NA TRASIE <FaSmileWink />
+              </p>
             </div>
           </section>
         </form>
@@ -300,49 +378,87 @@ const Reservation = () => {
 };
 
 const Wrapper = styled.div`
+  width: 100vw;
+  min-height: 80vh;
+  margin: 0 auto;
+  padding-top: 10vh;
+  position: relative;
   .title {
     margin-top: 10vh;
+    justify-content: space-between;
   }
   .content {
     width: 80vw;
-    margin: 10vh auto;
+    margin: 10vh auto 10vh;
     display: flex;
     flex-direction: column;
     .oneSection {
       display: flex;
       align-items: flex-start;
-      justify-content: space-between;
+      /* justify-content: space-between; */
+      justify-content: center;
       border-bottom: 1px solid var(--secondaryColor3);
-      padding: 5vh 3vw;
-      /* :nth-last-of-type(1) {
+      padding: 5vh 3vw 10vh;
+      position: relative;
+      :nth-last-of-type(1) {
         border-bottom: none;
-      } */
+        margin-top: 5vh;
+      }
       .numberSection {
         font-size: 10rem;
         color: #333;
         font-family: var(--headerFont);
+        position: absolute;
+        top: 5vh;
+        left: 0vw;
       }
       .details {
         width: 85%;
+        .paySvg {
+          font-size: 5rem;
+          color: var(--secondaryColor3);
+          margin: 3vh auto 0;
+          display: block;
+        }
         .sectionName {
           font-family: var(--headerFont);
           font-size: 1.9rem;
           text-transform: uppercase;
           text-align: center;
-          margin-bottom: 5vh;
+          margin: 5vh auto;
+        }
+        .lastSectionName {
+          color: var(--secondaryColor3);
         }
         .sectionInfo {
           font-weight: 500;
           font-size: 1.2rem;
+          text-align: center;
+          span {
+            font-weight: 600;
+            color: var(--secondaryColor3);
+          }
+        }
+        .lastSection {
+          font-size: 1.4rem;
+
+          svg {
+            color: var(--secondaryColor3);
+            margin: 5px auto 0 10px;
+          }
         }
         .buttonLink {
-          margin: 3vh auto 3vh 2vw;
+          margin: 0vh auto 3vh 2vw;
         }
         .labelCookieContainer {
+          width: 80%;
+          margin: 0 auto;
           p {
             cursor: pointer;
             display: flex;
-            align-items: center;
+            /* align-items: center; */
+            font-weight: 600;
+            font-family: var(--headerFont);
             input {
               margin-right: 10px;
               width: 20px;
@@ -353,10 +469,26 @@ const Wrapper = styled.div`
       }
     }
   }
+
   .carousel {
+    height: 70vh;
+    @media screen and (min-height: 800px) {
+      height: 60vh;
+    }
     .oneBike {
       width: 95%;
       margin-top: 3vh;
+    }
+  }
+  .arrow {
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.4s;
+    :hover {
+      color: var(--secondaryColor);
+    }
+    @media screen and (max-width: 800px) {
+      font-size: 1.5rem;
     }
   }
 
@@ -471,6 +603,44 @@ const Wrapper = styled.div`
     margin: 4vh auto 1vh;
     text-transform: uppercase;
     font-family: var(--headerFont);
+  }
+  .sendBtn {
+    width: 30%;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    font-family: var(--headerFont);
+    text-transform: uppercase;
+    padding: 10px 0px;
+    margin: 5vh auto 0;
+    font-weight: 600;
+    color: #fff;
+    background: var(--secondaryColor3);
+    transition: 0.4s;
+    cursor: pointer;
+    display: block;
+    :hover {
+      letter-spacing: 5px;
+    }
+    @media screen and (max-width: 800px) {
+      width: 60%;
+      padding: 5px 0px;
+      font-weight: 500;
+    }
+  }
+  .messageAlert {
+    font-family: var(--headerFont);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: var(--secondaryColor3);
+    margin-top: 3vh;
+  }
+  .map {
+    width: 70%;
+    height: 40vh;
+    margin: 5vh auto 0;
+    display: block;
+    border: 2px solid var(--secondaryColor);
   }
 `;
 

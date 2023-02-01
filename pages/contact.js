@@ -29,7 +29,9 @@ const KontaktPage = () => {
       </Head>
       <Wrapper>
         <div className="title">
+          <div className="titleLine"></div>
           <h2>Kontakt</h2>
+          <div className="titleLine"></div>
         </div>
         <div className="contactContainer">
           <section className="contactForm">
@@ -133,6 +135,7 @@ const Wrapper = styled.div`
   }
   .title {
     margin: 10vh auto;
+    justify-content: space-between;
   }
 
   .contactContainer {

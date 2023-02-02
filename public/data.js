@@ -19,7 +19,7 @@ export const bikesArray = [
     },
   },
   {
-    name: "CANNONDALE CAAD 12 shimano 105 – 2019",
+    name: "Example",
     img: "/images/bikes/rower.jpg",
     details: [
       "Rama: CAAD12, SmartForm C1 Premium Alloy, SAVE",

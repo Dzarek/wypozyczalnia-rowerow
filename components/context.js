@@ -4,6 +4,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [plLanguage, setPlLanguage] = useState(true);
+  const [choosenBikes, setChoosenBikes] = useState([]);
 
   useEffect(() => {
     fetch("http://ip-api.com/json")
@@ -23,6 +24,8 @@ const AppProvider = ({ children }) => {
       value={{
         plLanguage,
         setPlLanguage,
+        choosenBikes,
+        setChoosenBikes,
       }}
     >
       {children}

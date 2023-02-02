@@ -14,12 +14,16 @@ import {
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { GiReceiveMoney } from "react-icons/gi";
-import { TbArrowBack, TbBike } from "react-icons/tb";
+import { MdPedalBike } from "react-icons/md";
+import { TbArrowBack } from "react-icons/tb";
 import { FaSmileWink } from "react-icons/fa";
+import { useGlobalContext } from "../components/context";
 
 let minDate = new Date().toISOString().slice(0, 10);
 
 const Reservation = () => {
+  const { choosenBikes, setChoosenBikes } = useGlobalContext();
+
   const [status, setStatus] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -33,7 +37,6 @@ const Reservation = () => {
   const [daysNumber, setDaysNumber] = useState(1);
   const [pedal, setPedal] = useState("własne");
   const [helment, setHelmet] = useState("własny");
-  const [choosenBikes, setChoosenBikes] = useState([]);
 
   useEffect(() => {
     Aos.init({ duration: 1000, disable: "mobile" });
@@ -111,6 +114,11 @@ const Reservation = () => {
       );
   };
 
+  const handleDelete = (item) => {
+    const updateBikes = choosenBikes.filter((el) => el !== item);
+    setChoosenBikes(updateBikes);
+  };
+
   return (
     <>
       <Head>
@@ -147,7 +155,7 @@ const Reservation = () => {
                       type="checkbox"
                       id="accept"
                       name="accept"
-                      required
+                      // required
                       checked={regulationBox}
                       onChange={() => setRegulationBox(!regulationBox)}
                     />
@@ -160,7 +168,7 @@ const Reservation = () => {
           {/* section 2 */}
           <section className="oneSection" data-aos="fade-up">
             <span className="numberSection">2.</span>
-            <div className="details">
+            <div className="details detailsCarouzel">
               <h3 className="sectionName">Wybierz dla siebie rower</h3>
               <p className="sectionInfo">
                 Wybierz jeden lub więcej rowerów z listy poniżej lub przejdź do
@@ -196,12 +204,22 @@ const Reservation = () => {
               </Carousel>
               <div className="choosenBikes">
                 <h4>Wybrane rowery:</h4>
-                {/* jeszcze żaden rower nie został wybrany */}
-                <ul>
-                  <li>
-                    <TbBike /> CANNONDALE CAAD 12 SHIMANO 105 – 2019
-                  </li>
-                </ul>
+                {choosenBikes.length > 0 ? (
+                  <ul>
+                    {choosenBikes.map((item, index) => {
+                      return (
+                        <li key={index}>
+                          <MdPedalBike /> {item}{" "}
+                          <button onClick={() => handleDelete(item)}>X</button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : (
+                  <p className="noBikes">
+                    Jeszcze żaden rower nie został wybrany!
+                  </p>
+                )}
               </div>
             </div>
           </section>
@@ -524,6 +542,9 @@ const Wrapper = styled.div`
           }
         }
       }
+      .detailsCarouzel {
+        width: 95%;
+      }
     }
   }
 
@@ -574,6 +595,12 @@ const Wrapper = styled.div`
           font-size: 1.4rem;
         }
       }
+    }
+    .noBikes {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--secondaryColor3);
     }
   }
 

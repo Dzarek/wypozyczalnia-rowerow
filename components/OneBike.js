@@ -1,9 +1,17 @@
 import styled from "styled-components";
 import { VscDebugBreakpointData } from "react-icons/vsc";
-import Link from "next/link";
+// import Link from "next/link";
+import { useGlobalContext } from "./context";
 
 const OneBike = ({ item }) => {
   const { name, img, details, info, size, prices } = item;
+  const { choosenBikes, setChoosenBikes } = useGlobalContext();
+
+  const handleChooseBike = (name) => {
+    const newBikes = [...choosenBikes, name];
+    setChoosenBikes(newBikes);
+  };
+
   return (
     <Wrapper>
       <h3 className="bikeName">{name}</h3>
@@ -36,7 +44,15 @@ const OneBike = ({ item }) => {
         <li>6-12 dni - {prices.sixTwelvel} €/dzień</li>
         <li>13 dni - {prices.thirteen} €/dzień</li>
       </ul>
-      <button className="order">Wybierz</button>
+      {choosenBikes.includes(name) ? (
+        <button className="order orderDisabled" disabled>
+          Wybrano
+        </button>
+      ) : (
+        <button className="order" onClick={() => handleChooseBike(name)}>
+          Wybierz
+        </button>
+      )}
     </Wrapper>
   );
 };
@@ -139,6 +155,14 @@ const Wrapper = styled.div`
     :hover {
       letter-spacing: 10px;
       background: #222;
+    }
+  }
+  .orderDisabled {
+    background: white;
+    color: #222;
+    :hover {
+      letter-spacing: 3px;
+      background: white;
     }
   }
 `;

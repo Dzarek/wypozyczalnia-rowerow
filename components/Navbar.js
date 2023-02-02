@@ -4,7 +4,7 @@ import { animateScroll as scroll } from "react-scroll";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { HiArrowCircleUp } from "react-icons/hi";
-// import { useGlobalContext } from "./context";
+import { useGlobalContext } from "./context";
 
 const logo = "/images/homepage/headerImg.png";
 const headerBg = "/images/homepage/navBg.jpg";
@@ -12,6 +12,8 @@ const polandFlag = "/images/poland-flag.png";
 const englandFlag = "/images/england-flag.png";
 
 const Navbar = () => {
+  const { plLanguage, setPlLanguage } = useGlobalContext();
+
   const [offset, setOffset] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
 
@@ -42,26 +44,28 @@ const Navbar = () => {
                 : "bookingLink"
             }
           >
-            Rezerwacja
+            {plLanguage ? "Rezerwacja" : "reservation"}
           </a>
         </Link>
         <img src={logo} alt="logo" className="logo" />
         <Link href="/">
           <a className={router.pathname == "/" ? "active" : ""}>
-            Strona Główna
+            {plLanguage ? "strona główna" : "home page"}
           </a>
         </Link>
         <Link href="/bikes">
-          <a className={router.pathname == "/bikes" ? "active" : ""}>rowery</a>
+          <a className={router.pathname == "/bikes" ? "active" : ""}>
+            {plLanguage ? "rowery" : "bikes"}
+          </a>
         </Link>
         <Link href="/roads">
           <a className={router.pathname == "/roads" ? "active" : ""}>
-            polecane trasy
+            {plLanguage ? "polecane trasy" : "favorite roads"}
           </a>
         </Link>
         <Link href="/gallery">
           <a className={router.pathname == "/gallery" ? "active" : ""}>
-            galeria
+            {plLanguage ? "galeria" : "gallery"}
           </a>
         </Link>
         <Link href="/faq">
@@ -69,17 +73,27 @@ const Navbar = () => {
         </Link>
         <Link href="/regulations">
           <a className={router.pathname == "/regulations" ? "active" : ""}>
-            regulamin
+            {plLanguage ? "regulamin" : "regulations"}
           </a>
         </Link>
         <Link href="/contact">
           <a className={router.pathname == "/contact" ? "active" : ""}>
-            kontakt
+            {plLanguage ? "kontakt" : "contact"}
           </a>
         </Link>
         <div className="languages">
-          <img src={polandFlag} alt="flaga polska" />
-          <img src={englandFlag} alt="flaga angielska" />
+          <img
+            src={polandFlag}
+            alt="flaga polska"
+            onClick={() => setPlLanguage(true)}
+            className={plLanguage ? "activeFlag" : ""}
+          />
+          <img
+            src={englandFlag}
+            alt="flaga angielska"
+            onClick={() => setPlLanguage(false)}
+            className={!plLanguage ? "activeFlag" : ""}
+          />
         </div>
       </div>
       <button
@@ -172,6 +186,9 @@ const Wrapper = styled.div`
       :hover {
         filter: saturate(0.9);
       }
+    }
+    .activeFlag {
+      filter: saturate(0.7);
     }
   }
 

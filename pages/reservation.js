@@ -14,7 +14,7 @@ import {
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { GiReceiveMoney } from "react-icons/gi";
-import { TbArrowBack } from "react-icons/tb";
+import { TbArrowBack, TbBike } from "react-icons/tb";
 import { FaSmileWink } from "react-icons/fa";
 
 let minDate = new Date().toISOString().slice(0, 10);
@@ -33,10 +33,17 @@ const Reservation = () => {
   const [daysNumber, setDaysNumber] = useState(1);
   const [pedal, setPedal] = useState("własne");
   const [helment, setHelmet] = useState("własny");
+  const [choosenBikes, setChoosenBikes] = useState([]);
 
+  useEffect(() => {
+    Aos.init({ duration: 1000, disable: "mobile" });
+  }, []);
+
+  // USTAWIENIE DATY
   let nextDay = new Date(new Date(dateStart));
   nextDay.setDate(nextDay.getDate() + 1);
   const minDate2 = nextDay.toISOString().slice(0, 10);
+
   useEffect(() => {
     setDateEnd(nextDay.toISOString().slice(0, 10));
   }, [dateStart]);
@@ -45,10 +52,7 @@ const Reservation = () => {
     setDaysNumber(new Date(dateEnd).getDate() - new Date(dateStart).getDate());
   }, [dateStart, dateEnd]);
 
-  useEffect(() => {
-    Aos.init({ duration: 1000, disable: "mobile" });
-  }, []);
-
+  // TABLICE DODATKÓW
   const pedals = [
     "własne",
     "Shimano spd sl",
@@ -70,6 +74,43 @@ const Reservation = () => {
     );
   });
 
+  // WYSYŁKA FORMULARZA
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      // .sendForm(
+      //   "service_n61nubg",
+      //   "template_dhnujxr",
+      //   e.target,
+      //   "NIJK8PLN6cdaDtmW_"
+      // )
+      .then(
+        () => {
+          e.target.reset();
+          setStatus("SUCCESS");
+          setTimeout(() => {
+            setStatus("");
+            setName("");
+            setEmail("");
+            setPhone("");
+            setText("");
+            setBox(false);
+          }, 3000);
+        },
+        () => {
+          setStatus("ERROR");
+          setTimeout(() => {
+            setStatus("");
+            setName("");
+            setEmail("");
+            setPhone("");
+            setText("");
+            setBox(false);
+          }, 3000);
+        }
+      );
+  };
+
   return (
     <>
       <Head>
@@ -87,6 +128,7 @@ const Reservation = () => {
           <div className="titleLine"></div>
         </div>
         <form className="content">
+          {/* section 1 */}
           <section className="oneSection" data-aos="fade-up">
             <span className="numberSection">1.</span>
             <div className="details">
@@ -115,6 +157,7 @@ const Reservation = () => {
               </div>
             </div>
           </section>
+          {/* section 2 */}
           <section className="oneSection" data-aos="fade-up">
             <span className="numberSection">2.</span>
             <div className="details">
@@ -151,8 +194,18 @@ const Reservation = () => {
                   );
                 })}
               </Carousel>
+              <div className="choosenBikes">
+                <h4>Wybrane rowery:</h4>
+                {/* jeszcze żaden rower nie został wybrany */}
+                <ul>
+                  <li>
+                    <TbBike /> CANNONDALE CAAD 12 SHIMANO 105 – 2019
+                  </li>
+                </ul>
+              </div>
             </div>
           </section>
+          {/* section 3 */}
           <section className="oneSection formSection" data-aos="fade-up">
             <span className="numberSection">3.</span>
             <div className="details">
@@ -314,6 +367,7 @@ const Reservation = () => {
               </div>
             </div>
           </section>
+          {/* section 4 */}
           <section className="oneSection" data-aos="fade-up">
             <span className="numberSection">4.</span>
             <div className="details">
@@ -327,6 +381,7 @@ const Reservation = () => {
               <GiReceiveMoney className="paySvg" />
             </div>
           </section>
+          {/* section 5 */}
           <section className="oneSection" data-aos="fade-up">
             <span className="numberSection">5.</span>
             <div className="details">
@@ -350,6 +405,7 @@ const Reservation = () => {
               ></iframe>{" "}
             </div>
           </section>
+          {/* section 6 */}
           <section className="oneSection" data-aos="fade-up">
             <span className="numberSection">6.</span>
             <div className="details">
@@ -361,6 +417,7 @@ const Reservation = () => {
               <TbArrowBack className="paySvg" />
             </div>
           </section>
+          {/* end reservation*/}
           <section className="oneSection">
             <div className="details">
               <h3 className="sectionName lastSectionName">To już wszystko !</h3>
@@ -489,6 +546,34 @@ const Wrapper = styled.div`
     }
     @media screen and (max-width: 800px) {
       font-size: 1.5rem;
+    }
+  }
+
+  .choosenBikes {
+    margin: 5vh auto 0;
+    width: 80%;
+    padding: 2vh 2vw;
+    /* border: 2px solid #111; */
+    background: var(--secondaryColorBg);
+    h4 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 3vh;
+    }
+    ul {
+      list-style: none;
+      li {
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+        font-weight: 500;
+        svg {
+          color: var(--secondaryColor3);
+          margin-right: 20px;
+          flex-shrink: 0;
+          font-size: 1.4rem;
+        }
+      }
     }
   }
 

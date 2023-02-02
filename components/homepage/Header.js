@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { useGlobalContext } from "../context";
 import { HiChevronDoubleDown } from "react-icons/hi";
 
 const cycloagaeteH1 = "/images/homepage/cycloagaeteH1.png";
@@ -9,44 +10,58 @@ const polandFlag = "/images/poland-flag.png";
 const englandFlag = "/images/england-flag.png";
 
 const Header = () => {
+  const { plLanguage, setPlLanguage } = useGlobalContext();
+
   return (
     <Wrapper>
       <img src={headerBg} alt="" className="headerBg" />
       <img src={pasekBg} alt="" className="pasek" />
       <nav>
         <Link href="/">
-          <p className="activeNav">strona główna</p>
+          <p className="activeNav">
+            {plLanguage ? "strona główna" : "home page"}
+          </p>
         </Link>
         <Link href="/bikes">
-          <p>rowery</p>
+          <p>{plLanguage ? "rowery" : "bikes"}</p>
         </Link>
         <Link href="/roads">
-          <p>polecane trasy</p>
+          <p>{plLanguage ? "polecane trasy" : "favorite roads"}</p>
         </Link>
         <Link href="/gallery">
-          <p>galeria</p>
+          <p>{plLanguage ? "galeria" : "gallery"}</p>
         </Link>
         <Link href="/faq">
           <p>faq</p>
         </Link>
         <Link href="/regulations">
-          <p>regulamin</p>
+          <p>{plLanguage ? "regulamin" : "regulations"}</p>
         </Link>
         <Link href="/contact">
-          <p>kontakt</p>
+          <p>{plLanguage ? "kontakt" : "contact"}</p>
         </Link>
         <div className="languages">
-          <img src={polandFlag} alt="flaga polska" />
-          <img src={englandFlag} alt="flaga angielska" />
+          <img
+            src={polandFlag}
+            alt="flaga polska"
+            onClick={() => setPlLanguage(true)}
+            className={plLanguage ? "activeFlag" : ""}
+          />
+          <img
+            src={englandFlag}
+            alt="flaga angielska"
+            onClick={() => setPlLanguage(false)}
+            className={!plLanguage ? "activeFlag" : ""}
+          />
         </div>
       </nav>
       <section>
         <div className="headerTitle">
-          <h2>wypożyczalnia rowerów</h2>
+          <h2>{plLanguage ? "wypożyczalnia rowerów" : "bike rental"}</h2>
           <img src={cycloagaeteH1} alt="" />
         </div>
         <Link href="/reservation">
-          <button>Rezerwuj Rower</button>
+          <button>{plLanguage ? "Rezerwuj Rower" : "reserve your bike"}</button>
         </Link>
       </section>
       <HiChevronDoubleDown className="headerArrow" />
@@ -84,9 +99,9 @@ const Wrapper = styled.div`
       :hover {
         filter: saturate(0.9);
       }
-      :nth-of-type(1) {
-        filter: saturate(0.7);
-      }
+    }
+    .activeFlag {
+      filter: saturate(0.7);
     }
   }
 

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Head from "next/head";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useGlobalContext } from "../components/context";
 import emailjs from "emailjs-com";
 import { bikesArray } from "../public/data";
 import OneBike from "../components/OneBike";
@@ -17,7 +18,7 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { MdPedalBike } from "react-icons/md";
 import { TbArrowBack } from "react-icons/tb";
 import { FaSmileWink } from "react-icons/fa";
-import { useGlobalContext } from "../components/context";
+import { IoClose } from "react-icons/io5";
 
 let minDate = new Date().toISOString().slice(0, 10);
 
@@ -210,7 +211,7 @@ const Reservation = () => {
                       return (
                         <li key={index}>
                           <MdPedalBike /> {item}{" "}
-                          <button onClick={() => handleDelete(item)}>X</button>
+                          <IoClose onClick={() => handleDelete(item)} />
                         </li>
                       );
                     })}
@@ -588,11 +589,22 @@ const Wrapper = styled.div`
         align-items: center;
         font-size: 1.3rem;
         font-weight: 500;
+        margin-bottom: 1vh;
         svg {
           color: var(--secondaryColor3);
           margin-right: 20px;
           flex-shrink: 0;
           font-size: 1.4rem;
+          :nth-of-type(2) {
+            margin-left: 10px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: 0.3s;
+            color: var(--deleteColor);
+            :hover {
+              transform: scale(1.3);
+            }
+          }
         }
       }
     }

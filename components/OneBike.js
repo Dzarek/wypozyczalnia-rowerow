@@ -2,57 +2,68 @@ import styled from "styled-components";
 import { VscDebugBreakpointData } from "react-icons/vsc";
 // import Link from "next/link";
 import { useGlobalContext } from "./context";
+import { useState, useEffect } from "react";
 
 const OneBike = ({ item }) => {
   const { name, img, details, info, size, prices } = item;
+  const [activeBike, setActiveBike] = useState(false);
   const { choosenBikes, setChoosenBikes } = useGlobalContext();
 
   const handleChooseBike = (name) => {
     const newBikes = [...choosenBikes, name];
     setChoosenBikes(newBikes);
   };
+  useEffect(() => {
+    if (choosenBikes.includes(name)) {
+      setActiveBike(true);
+    } else {
+      setActiveBike(false);
+    }
+  }, [choosenBikes]);
 
   return (
     <Wrapper>
-      <h3 className="bikeName">{name}</h3>
-      <section>
-        <img src={img} alt={name} />
-        <div className="info">
-          <h4>Dane techniczne:</h4>
-          <ul>
-            {details.map((item, index) => {
-              return (
-                <li key={index}>
-                  <VscDebugBreakpointData />
-                  {item}
-                </li>
-              );
-            })}
-          </ul>
-          <h4>Opis:</h4>
-          <p>{info}</p>
-          <h4>Rozmiar ramy:</h4>
-          <p>
-            <VscDebugBreakpointData />
-            {size}
-          </p>
-        </div>
-      </section>
-      <ul className="prices">
-        <li>1 dzień - {prices.one} €</li>
-        <li>2-5 dni - {prices.twoFive} €/dzień</li>
-        <li>6-12 dni - {prices.sixTwelvel} €/dzień</li>
-        <li>13 dni - {prices.thirteen} €/dzień</li>
-      </ul>
-      {choosenBikes.includes(name) ? (
-        <button className="order orderDisabled" disabled>
-          Wybrano
-        </button>
-      ) : (
-        <button className="order" onClick={() => handleChooseBike(name)}>
-          Wybierz
-        </button>
-      )}
+      <div className={activeBike ? "bikeDisable" : ""}>
+        <h3 className="bikeName">{name}</h3>
+        <section>
+          <img src={img} alt={name} />
+          <div className="info">
+            <h4>Dane techniczne:</h4>
+            <ul>
+              {details.map((item, index) => {
+                return (
+                  <li key={index}>
+                    <VscDebugBreakpointData />
+                    {item}
+                  </li>
+                );
+              })}
+            </ul>
+            <h4>Opis:</h4>
+            <p>{info}</p>
+            <h4>Rozmiar ramy:</h4>
+            <p>
+              <VscDebugBreakpointData />
+              {size}
+            </p>
+          </div>
+        </section>
+        <ul className="prices">
+          <li>1 dzień - {prices.one} €</li>
+          <li>2-5 dni - {prices.twoFive} €/dzień</li>
+          <li>6-12 dni - {prices.sixTwelvel} €/dzień</li>
+          <li>13 dni - {prices.thirteen} €/dzień</li>
+        </ul>
+        {activeBike ? (
+          <button className="order orderDisabled" disabled>
+            Wybrano
+          </button>
+        ) : (
+          <button className="order" onClick={() => handleChooseBike(name)}>
+            Wybierz
+          </button>
+        )}
+      </div>
     </Wrapper>
   );
 };
@@ -63,6 +74,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   border: 2px solid var(--secondaryColor);
   border-radius: 5px;
+  .bikeDisable {
+    opacity: 0.7;
+    transition: 0.4s;
+  }
 
   .bikeName {
     width: 100%;

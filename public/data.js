@@ -38,7 +38,7 @@ export const bikesArray = [
     },
   },
   {
-    name: "CANNONDALE CAAD 12 shimano 105 – 2019",
+    name: "Example 2",
     img: "/images/bikes/rower.jpg",
     details: [
       "Rama: CAAD12, SmartForm C1 Premium Alloy, SAVE",
@@ -57,7 +57,7 @@ export const bikesArray = [
     },
   },
   {
-    name: "CANNONDALE CAAD 12 shimano 105 – 2019",
+    name: "Example 3",
     img: "/images/bikes/rower.jpg",
     details: [
       "Rama: CAAD12, SmartForm C1 Premium Alloy, SAVE",
@@ -76,7 +76,7 @@ export const bikesArray = [
     },
   },
   {
-    name: "CANNONDALE CAAD 12 shimano 105 – 2019",
+    name: "Example 4",
     img: "/images/bikes/rower.jpg",
     details: [
       "Rama: CAAD12, SmartForm C1 Premium Alloy, SAVE",

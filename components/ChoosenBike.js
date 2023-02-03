@@ -9,10 +9,16 @@ import { bikesArray } from "../public/data";
 const ChoosenBike = () => {
   const { choosenBikes, setChoosenBikes } = useGlobalContext();
   const [showBikes, setShowBikes] = useState(false);
+  const [activeImg, setActiveImg] = useState(null);
 
   const handleDelete = (item) => {
     const updateBikes = choosenBikes.filter((el) => el !== item);
     setChoosenBikes(updateBikes);
+  };
+
+  const handleImage = (item) => {
+    const bikeImg = bikesArray.find((el) => el.name === item);
+    setActiveImg(bikeImg);
   };
 
   return (
@@ -30,14 +36,22 @@ const ChoosenBike = () => {
                 />
               )}
             </div>
-            <div className="container">
+            <div
+              className={activeImg ? "container borderContainer" : "container"}
+            >
               <h4>Wybrane rowery:</h4>
               {choosenBikes.length > 0 && (
                 <ul>
                   {choosenBikes.map((item, index) => {
                     return (
                       <li key={index}>
-                        <MdPedalBike /> {item}
+                        <MdPedalBike />{" "}
+                        <p
+                          onMouseOver={() => handleImage(item)}
+                          onMouseLeave={() => setActiveImg(null)}
+                        >
+                          {item}
+                        </p>
                         <IoClose onClick={() => handleDelete(item)} />
                       </li>
                     );
@@ -46,6 +60,11 @@ const ChoosenBike = () => {
               )}
             </div>
           </div>
+          {activeImg && (
+            <div className="imgContainer">
+              <img src={activeImg.img} alt="" />
+            </div>
+          )}
         </Wrapper>
       )}
     </>
@@ -53,11 +72,13 @@ const ChoosenBike = () => {
 };
 
 const Wrapper = styled.div`
+  position: fixed;
+  top: 15vh;
+  right: 0vw;
+  z-index: 999999999;
+  display: flex;
+  flex-direction: column;
   .all {
-    position: fixed;
-    top: 15vh;
-    right: 0vw;
-    z-index: 999999999;
     display: flex;
     align-items: flex-start;
     transform: translateX(40vw);
@@ -133,6 +154,33 @@ const Wrapper = styled.div`
         }
       }
     }
+  }
+  .borderContainer {
+    border-radius: 0 0 0 0;
+  }
+  .imgContainer {
+    width: 40vw;
+    height: 0vw;
+    align-self: flex-end;
+    border: 2px solid var(--secondaryColor3);
+    border-top: 2px solid var(--secondaryColorBg);
+    border-right: none;
+    border-radius: 0 0 0 10px;
+    animation: aaa 1s 1 forwards;
+    transform: translateY(-2px);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @keyframes aaa {
+      100% {
+        height: 15vw;
+      }
+    }
+  }
+  img {
+    height: 90%;
+    object-fit: cover;
   }
 `;
 

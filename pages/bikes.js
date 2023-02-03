@@ -51,7 +51,7 @@ const Bikes = () => {
               <article key={index} data-aos="fade-up">
                 <span>{index + 1}</span>
                 <div className="oneBike">
-                  <OneBike item={item} />;
+                  <OneBike item={item} />
                 </div>
               </article>
             );

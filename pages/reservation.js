@@ -113,6 +113,7 @@ const Reservation = () => {
             setRegulationBox(false);
             setPolicyBox(false);
             setWithCoachBox(false);
+            setChoosenBikes([]);
           }, 3000);
         },
         () => {
@@ -128,6 +129,7 @@ const Reservation = () => {
             setRegulationBox(false);
             setPolicyBox(false);
             setWithCoachBox(false);
+            setChoosenBikes([]);
           }, 3000);
         }
       );

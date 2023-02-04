@@ -5,6 +5,7 @@ import { MdPedalBike } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 import { HiArrowCircleRight } from "react-icons/hi";
 import { bikesArray } from "../public/data";
+import Link from "next/link";
 
 const ChoosenBike = () => {
   const { choosenBikes, setChoosenBikes } = useGlobalContext();
@@ -58,6 +59,9 @@ const ChoosenBike = () => {
                   })}
                 </ul>
               )}
+              <Link href="/reservation">
+                <button className="buttonLink">Rezerwacja</button>
+              </Link>
             </div>
           </div>
           {activeImg && (
@@ -181,6 +185,14 @@ const Wrapper = styled.div`
   img {
     height: 90%;
     object-fit: cover;
+  }
+  .buttonLink {
+    font-size: 1.1rem;
+    margin: 2vh auto;
+    display: block;
+    :hover {
+      letter-spacing: 2px;
+    }
   }
 `;
 

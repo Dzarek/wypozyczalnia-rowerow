@@ -37,7 +37,7 @@ const Reservation = () => {
   const [dateEnd, setDateEnd] = useState(dateStart);
   const [daysNumber, setDaysNumber] = useState(1);
   const [pedal, setPedal] = useState("własne");
-  const [helment, setHelmet] = useState("własny");
+  const [helmet, setHelmet] = useState("własny");
 
   useEffect(() => {
     Aos.init({ duration: 1000, disable: "mobile" });
@@ -81,13 +81,23 @@ const Reservation = () => {
   // WYSYŁKA FORMULARZA
   const sendEmail = (e) => {
     e.preventDefault();
+    if (
+      !regulationBox ||
+      choosenBikes.length < 0 ||
+      !name ||
+      !email ||
+      !phone ||
+      !policyBox
+    ) {
+      return alert("Uzupełnij wszystkie wymagane pola!");
+    }
     emailjs
-      // .sendForm(
-      //   "service_n61nubg",
-      //   "template_dhnujxr",
-      //   e.target,
-      //   "NIJK8PLN6cdaDtmW_"
-      // )
+      .sendForm(
+        "service_eu28q7p",
+        "template_2gciz6b",
+        e.target,
+        "QPhckFRY63F4zWAKT"
+      )
       .then(
         () => {
           e.target.reset();
@@ -98,7 +108,11 @@ const Reservation = () => {
             setEmail("");
             setPhone("");
             setText("");
-            setBox(false);
+            setPedal("własne");
+            setHelmet("własny");
+            setRegulationBox(false);
+            setPolicyBox(false);
+            setWithCoachBox(false);
           }, 3000);
         },
         () => {
@@ -109,7 +123,11 @@ const Reservation = () => {
             setEmail("");
             setPhone("");
             setText("");
-            setBox(false);
+            setPedal("własne");
+            setHelmet("własny");
+            setRegulationBox(false);
+            setPolicyBox(false);
+            setWithCoachBox(false);
           }, 3000);
         }
       );
@@ -136,7 +154,7 @@ const Reservation = () => {
           <h2>Rezerwacja</h2>
           <div className="titleLine"></div>
         </div>
-        <form className="content">
+        <form className="content" onSubmit={(e) => sendEmail(e)}>
           {/* section 1 */}
           <section className="oneSection" data-aos="fade-up">
             <span className="numberSection">1.</span>
@@ -146,7 +164,9 @@ const Reservation = () => {
                 Przed dokonaniem rezerwacji przeczytaj regulamin wypożyczenia
                 roweru.
                 <Link href="/regulations">
-                  <button className="buttonLink">Regulamin</button>
+                  <button className="buttonLink" type="button">
+                    Regulamin
+                  </button>
                 </Link>
               </p>
               <div className="labelCookieContainer">
@@ -156,7 +176,7 @@ const Reservation = () => {
                       type="checkbox"
                       id="accept"
                       name="accept"
-                      // required
+                      required
                       checked={regulationBox}
                       onChange={() => setRegulationBox(!regulationBox)}
                     />
@@ -175,7 +195,9 @@ const Reservation = () => {
                 Wybierz jeden lub więcej rowerów z listy poniżej lub przejdź do
                 zakładki ROWERY, aby zobaczyć wszystkie.{" "}
                 <Link href="/bikes">
-                  <button className="buttonLink">Rowery</button>
+                  <button type="button" className="buttonLink">
+                    Rowery
+                  </button>
                 </Link>
               </p>
               <Carousel
@@ -210,7 +232,8 @@ const Reservation = () => {
                     {choosenBikes.map((item, index) => {
                       return (
                         <li key={index}>
-                          <MdPedalBike /> {item}{" "}
+                          <MdPedalBike /> {item}
+                          <input type="hidden" name="bikeList" value={item} />
                           <IoClose onClick={() => handleDelete(item)} />
                         </li>
                       );
@@ -313,11 +336,11 @@ const Reservation = () => {
                     </select>
                   </div>
                   <div className="formInput">
-                    <label htmlFor="helment">Wybór kasku:</label>
+                    <label htmlFor="helmet">Wybór kasku:</label>
                     <select
-                      name="helment"
-                      id="helment"
-                      value={helment}
+                      name="helmet"
+                      id="helmet"
+                      value={helmet}
                       onChange={(e) => setHelmet(e.target.value)}
                     >
                       {helmets}
@@ -331,10 +354,14 @@ const Reservation = () => {
                       <input
                         type="checkbox"
                         id="withCoachBox"
-                        name="withCoachBox"
-                        required
+                        // name="withCoachBox"
                         checked={withCoachBox}
                         onChange={() => setWithCoachBox(!withCoachBox)}
+                      />
+                      <input
+                        type="hidden"
+                        name="withCoachBox"
+                        value={withCoachBox ? "tak" : "nie"}
                       />
                       Jestem zainteresowany/na wycieczką/treningiem z trenerem.
                     </p>
@@ -345,7 +372,7 @@ const Reservation = () => {
                   <textarea
                     id="message"
                     name="message"
-                    required
+                    // required
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                   ></textarea>
@@ -757,7 +784,9 @@ const Wrapper = styled.div`
     font-size: 1.4rem;
     text-transform: uppercase;
     color: var(--secondaryColor3);
-    margin-top: 3vh;
+    margin: 3vh auto;
+    text-align: center;
+    font-weight: 500;
   }
   .map {
     width: 70%;

@@ -55,11 +55,15 @@ const OneBike = ({ item }) => {
           <li>13 dni - {prices.thirteen} €/dzień</li>
         </ul>
         {activeBike ? (
-          <button className="order orderDisabled" disabled>
+          <button type="button" className="order orderDisabled" disabled>
             Wybrano
           </button>
         ) : (
-          <button className="order" onClick={() => handleChooseBike(name)}>
+          <button
+            type="button"
+            className="order"
+            onClick={() => handleChooseBike(name)}
+          >
             Wybierz
           </button>
         )}

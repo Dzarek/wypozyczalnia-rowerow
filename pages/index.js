@@ -7,10 +7,11 @@ import ShortRoads from "../components/homepage/ShortRoads";
 import ShortGallery from "../components/homepage/ShortGallery";
 import ShortFaqRegulations from "../components/homepage/ShortFaqRegulations";
 
-import { createClient } from "contentful";
+// import { createClient } from "contentful";
 
-export default function Home({ rowery }) {
-  console.log(rowery);
+export default function Home() {
+  // export default function Home({ rowery }) {
+  //   console.log(rowery);
   return (
     <>
       <Head>
@@ -33,18 +34,18 @@ export default function Home({ rowery }) {
   );
 }
 
-export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-  });
+// export async function getStaticProps() {
+//   const client = createClient({
+//     space: process.env.CONTENTFUL_SPACE_ID,
+//     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+//   });
 
-  const res = await client.getEntries({ content_type: "rowery" });
+//   const res = await client.getEntries({ content_type: "rowery" });
 
-  return {
-    props: {
-      rowery: res.items,
-    },
-    revalidate: 60,
-  };
-}
+//   return {
+//     props: {
+//       rowery: res.items,
+//     },
+//     revalidate: 60,
+//   };
+// }

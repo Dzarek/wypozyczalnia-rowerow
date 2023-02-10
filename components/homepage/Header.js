@@ -109,7 +109,6 @@ const Wrapper = styled.div`
     width: 80vw;
     height: 10vh;
     position: absolute;
-    /* background-color: rgba(255, 255, 255, 1); */
     top: 0vh;
     right: 0;
     z-index: 999;
@@ -155,7 +154,11 @@ const Wrapper = styled.div`
       background: var(--secondaryColor);
       color: #fff;
     }
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
   }
+
   .headerBg {
     object-fit: cover;
     height: 100vh;
@@ -168,10 +171,20 @@ const Wrapper = styled.div`
   }
   @keyframes bgMove {
     0% {
-      transform: scale(1);
+      transform: scale(1.1) translateX(-40px);
     }
     100% {
-      transform: scale(1.3);
+      transform: scale(1.1) translateX(40px);
+    }
+  }
+  @media screen and (max-width: 800px) {
+    @keyframes bgMove {
+      0% {
+        transform: scale(1.2) translateX(-20px);
+      }
+      100% {
+        transform: scale(1.2) translateX(20px);
+      }
     }
   }
   section {
@@ -182,7 +195,7 @@ const Wrapper = styled.div`
     left: 0;
     z-index: 1;
 
-    @keyframes logoAnim {
+    /* @keyframes logoAnim {
       0% {
         filter: saturate(1);
       }
@@ -192,7 +205,7 @@ const Wrapper = styled.div`
       100% {
         filter: saturate(0);
       }
-    }
+    } */
     .headerTitle {
       position: absolute;
       top: 55%;
@@ -209,6 +222,21 @@ const Wrapper = styled.div`
       img {
         margin-top: 5vh;
         width: 45vw;
+      }
+      @media screen and (max-width: 800px) {
+        top: 10%;
+        right: 50%;
+        transform: translateX(50%);
+        text-align: center;
+
+        h2 {
+          font-size: 2rem;
+          letter-spacing: 3px;
+        }
+        img {
+          margin-top: 5vh;
+          width: 80vw;
+        }
       }
     }
   }
@@ -234,6 +262,14 @@ const Wrapper = styled.div`
       background: var(--secondaryColor3);
       border: 2px solid #fff;
     }
+    @media screen and (max-width: 800px) {
+      font-size: 1.1rem;
+      padding: 10px 15px;
+      bottom: 20vh;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 60%;
+    }
   }
   .headerArrow {
     position: absolute;
@@ -255,6 +291,9 @@ const Wrapper = styled.div`
         bottom: 5%;
         opacity: 0;
       }
+    }
+    @media screen and (max-width: 800px) {
+      font-size: 3rem;
     }
   }
 `;

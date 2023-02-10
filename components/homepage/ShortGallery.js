@@ -68,6 +68,9 @@ const Wrapper = styled.div`
   position: relative;
   border: 3px solid var(--secondaryColor);
   border-radius: 30px;
+  @media screen and (max-width: 800px) {
+    width: 95vw;
+  }
   .content {
     z-index: 2;
     position: relative;
@@ -114,6 +117,9 @@ const Wrapper = styled.div`
   }
   .title {
     justify-content: flex-end;
+    @media screen and (max-width: 800px) {
+      justify-content: center;
+    }
   }
   main {
     margin-top: 5vh;
@@ -121,6 +127,9 @@ const Wrapper = styled.div`
     width: 100%;
     justify-content: space-between;
     align-items: flex-start;
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+    }
   }
   .cameraIcon {
     font-size: 8rem;
@@ -147,6 +156,11 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     margin-left: -2vw;
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      margin-left: 0vw;
+      justify-content: space-between;
+    }
     img {
       width: 40%;
       height: 15vh;
@@ -159,6 +173,14 @@ const Wrapper = styled.div`
       :hover {
         filter: saturate(1);
       }
+      @media screen and (max-width: 800px) {
+        margin: 0px;
+        margin-bottom: 10px;
+        width: 46%;
+        :hover {
+          filter: saturate(0);
+        }
+      }
     }
     .activeImg {
       filter: saturate(0);
@@ -169,6 +191,9 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media screen and (max-width: 800px) {
+      width: 100%;
+    }
     img {
       width: 90%;
       height: 40vh;
@@ -178,6 +203,12 @@ const Wrapper = styled.div`
       border: 2px solid var(--secondaryColor3);
       border-radius: 5px;
       margin-left: 7vw;
+      @media screen and (max-width: 800px) {
+        width: 100%;
+        margin-left: 0vw;
+        height: 30vh;
+        margin-top: 5vh;
+      }
     }
     .galleryLink {
       font-size: 1.8rem;
@@ -197,6 +228,15 @@ const Wrapper = styled.div`
       }
       :hover svg {
         animation: iconMove 1s linear infinite;
+      }
+      @media screen and (max-width: 800px) {
+        font-size: 1.5rem;
+        margin-left: 0;
+        svg {
+          font-size: 2rem;
+          margin: 2px auto 0 5px;
+          animation: iconMove 3s linear infinite;
+        }
       }
     }
     @keyframes iconMove {

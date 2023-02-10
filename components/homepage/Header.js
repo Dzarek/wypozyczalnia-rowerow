@@ -74,6 +74,9 @@ const Wrapper = styled.div`
   width: 100vw;
   position: relative;
   overflow: hidden;
+  @media screen and (max-width: 800px) {
+    height: 100dvh;
+  }
   .pasek {
     position: absolute;
     top: 0;
@@ -168,6 +171,9 @@ const Wrapper = styled.div`
     left: 0;
     z-index: 0;
     animation: bgMove 20s linear infinite alternate;
+    @media screen and (max-width: 800px) {
+      height: 100dvh;
+    }
   }
   @keyframes bgMove {
     0% {
@@ -194,18 +200,9 @@ const Wrapper = styled.div`
     top: 0;
     left: 0;
     z-index: 1;
-
-    /* @keyframes logoAnim {
-      0% {
-        filter: saturate(1);
-      }
-      70% {
-        filter: saturate(1);
-      }
-      100% {
-        filter: saturate(0);
-      }
-    } */
+    @media screen and (max-width: 800px) {
+      height: 100dvh;
+    }
     .headerTitle {
       position: absolute;
       top: 55%;

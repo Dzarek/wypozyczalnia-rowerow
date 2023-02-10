@@ -29,13 +29,23 @@ const ShortBikes = () => {
         addArrowClickHandler
         stopAutoPlayOnHover
         draggable={false}
-        arrowLeft={<MdOutlineArrowBackIos className="arrow" />}
-        arrowRight={<MdOutlineArrowForwardIos className="arrow" />}
+        arrowLeft={
+          <div>
+            <MdOutlineArrowBackIos className="arrow" />
+            <MdOutlineArrowBackIos className="arrow arrowBottom" />
+          </div>
+        }
+        arrowRight={
+          <div>
+            <MdOutlineArrowForwardIos className="arrow arrowRight" />
+            <MdOutlineArrowForwardIos className="arrow arrowRight arrowBottom" />
+          </div>
+        }
       >
         {bikesArray.map((item, index) => {
           return (
             <div className="oneBike" key={index}>
-              <OneBike item={item} />;
+              <OneBike item={item} />
             </div>
           );
         })}
@@ -49,6 +59,7 @@ const ShortBikes = () => {
 
 const Wrapper = styled.div`
   margin-bottom: 5vh;
+  padding-top: 7vh;
   .title h2 {
     color: #444;
   }
@@ -59,6 +70,12 @@ const Wrapper = styled.div`
     @media screen and (min-height: 800px) {
       height: 55vh;
     }
+    @media screen and (max-width: 800px) {
+      width: 100vw;
+      height: auto;
+      position: relative;
+      padding: 5vh 0 12vh;
+    }
   }
   .arrow {
     font-size: 2rem;
@@ -67,8 +84,21 @@ const Wrapper = styled.div`
     :hover {
       color: var(--secondaryColor);
     }
-    @media screen and (max-width: 800px) {
-      font-size: 1.5rem;
+  }
+  @media screen and (max-width: 800px) {
+    .arrow {
+      font-size: 2rem;
+      position: absolute;
+      top: 0vh;
+      left: 50%;
+      transform: translateX(-100%);
+      width: 30vw;
+    }
+    .arrowRight {
+      transform: translateX(0%);
+    }
+    .arrowBottom {
+      top: 96%;
     }
   }
   .linkToBikes {
@@ -87,13 +117,23 @@ const Wrapper = styled.div`
     border-radius: 5px;
     font-family: var(--headerFont);
     letter-spacing: 3px;
+    text-align: center;
     :hover {
       border: 2px solid var(--secondaryColor);
       color: var(--secondaryColor);
     }
+    @media screen and (max-width: 800px) {
+      border: 2px solid var(--secondaryColor);
+      width: 80vw;
+      font-size: 1.5rem;
+    }
   }
   .oneBike {
     width: 85%;
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      margin-top: 3vh;
+    }
   }
 `;
 

@@ -73,7 +73,6 @@ const OneBike = ({ item }) => {
 };
 
 const Wrapper = styled.div`
-  /* width: 85%; */
   display: flex;
   flex-direction: column;
   border: 2px solid var(--secondaryColor);
@@ -96,12 +95,17 @@ const Wrapper = styled.div`
     text-align: center;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    @media screen and (max-width: 800px) {
+      font-size: 1.2rem;
+      padding: 5px;
+    }
   }
   section {
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-weight: 500;
+
     img {
       width: 40%;
     }
@@ -136,6 +140,45 @@ const Wrapper = styled.div`
         }
       }
     }
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      img {
+        width: 90%;
+      }
+      .info {
+        width: 95%;
+        h4 {
+          margin-top: 2vh;
+          margin-bottom: 1vh;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          text-align: center;
+          color: var(--secondaryColor3);
+        }
+        li {
+          font-size: 1.1rem;
+          list-style: none;
+          display: flex;
+          align-items: center;
+          svg {
+            flex-shrink: 0;
+            margin-right: 3px;
+            margin-top: 3px;
+            color: var(--secondaryColor);
+          }
+        }
+        p {
+          font-size: 1.1rem;
+          display: flex;
+          align-items: center;
+          svg {
+            margin-right: 3px;
+            margin-top: 3px;
+            color: var(--secondaryColor);
+          }
+        }
+      }
+    }
   }
   .prices {
     width: 100%;
@@ -153,6 +196,13 @@ const Wrapper = styled.div`
       text-align: center;
       :nth-child(even) {
         background: var(--secondaryColor);
+      }
+    }
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      li {
+        width: 100%;
+        font-weight: 600;
       }
     }
   }

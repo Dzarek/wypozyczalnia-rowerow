@@ -81,12 +81,18 @@ const Wrapper = styled.footer`
   align-items: center;
   justify-content: flex-end;
   color: white;
+  @media screen and (max-width: 800px) {
+    padding: 5vh 3vw 10vh;
+  }
   .content {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
     position: relative;
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+    }
     .logoFooter {
       position: absolute;
       top: 50%;
@@ -94,6 +100,13 @@ const Wrapper = styled.footer`
       transform: translate(-50%, -50%);
       height: 15vh;
       filter: saturate(0);
+      @media screen and (max-width: 800px) {
+        position: static;
+        transform: translate(0);
+        align-self: center;
+        margin: 5vh auto;
+        order: 1;
+      }
     }
     .cytat {
       font-style: italic;
@@ -104,6 +117,9 @@ const Wrapper = styled.footer`
       font-family: var(--headerFont);
       margin-top: 5vh;
       letter-spacing: 1px;
+      @media screen and (max-width: 800px) {
+        font-size: 1.1rem;
+      }
     }
   }
   .allRights {
@@ -111,6 +127,7 @@ const Wrapper = styled.footer`
     font-family: var(--titleFont);
     font-size: 1rem;
     font-weight: 500;
+    text-align: center;
     .line {
       width: 70%;
       background: var(--secondaryColor);
@@ -125,6 +142,7 @@ const Wrapper = styled.footer`
     justify-content: center;
     align-items: center;
     width: 30%;
+
     a,
     h4 {
       font-size: 1.1rem;
@@ -148,6 +166,11 @@ const Wrapper = styled.footer`
         font-size: 1.5rem;
       }
     }
+    @media screen and (max-width: 800px) {
+      width: 95%;
+      margin: 5vh auto;
+      order: 2;
+    }
   }
   h3 {
     margin-bottom: 3vh;
@@ -159,9 +182,6 @@ const Wrapper = styled.footer`
   }
 
   .bankDetails {
-    /* h3 {
-      margin-bottom: 5vh;
-    } */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -181,7 +201,6 @@ const Wrapper = styled.footer`
       align-self: flex-start;
       margin-left: 3vw;
       :nth-of-type(1) {
-        /* margin-bottom: 6vh; */
         align-self: center;
         font-size: 1.3rem;
         margin-left: 0vw;
@@ -205,6 +224,11 @@ const Wrapper = styled.footer`
         margin-right: 10px;
         font-size: 1.5rem;
       }
+    }
+    @media screen and (max-width: 800px) {
+      width: 95%;
+      margin: 5vh auto;
+      order: 3;
     }
   }
 

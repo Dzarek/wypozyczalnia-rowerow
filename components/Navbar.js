@@ -109,9 +109,9 @@ const Navbar = () => {
 };
 
 const Wrapper = styled.div`
-  /* @media screen and (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     display: none;
-  } */
+  }
 
   .navbar {
     position: fixed;

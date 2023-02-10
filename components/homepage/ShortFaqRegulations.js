@@ -58,7 +58,7 @@ const ShortFaqRegulations = () => {
             <h3>
               Masz pytania?
               <br />
-              Tutaj znajdziesz odpowiedzi na te, które są najczęściej zadawane{" "}
+              Tutaj znajdziesz odpowiedzi na te, które są najczęściej zadawane.{" "}
               <BiWinkSmile />
             </h3>
             <Link href="/faq">FAQ</Link>
@@ -75,6 +75,9 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 5vh 5vw 0;
   position: relative;
+  @media screen and (max-width: 800px) {
+    padding: 5vh 0vw 0;
+  }
   .content {
     width: 100%;
     margin-top: 5vh;
@@ -82,10 +85,16 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     h3 {
       font-size: 1.5rem;
       font-weight: 500;
       text-align: center;
+      @media screen and (max-width: 800px) {
+        font-size: 1.3rem;
+        width: 95%;
+        margin: 0 auto;
+      }
       span {
         color: var(--secondaryColor3);
         font-weight: 600;
@@ -108,6 +117,9 @@ const Wrapper = styled.div`
       transition: 0.4s;
       :hover {
         letter-spacing: 5px;
+      }
+      @media screen and (max-width: 800px) {
+        font-size: 1.4rem;
       }
     }
     .steps {
@@ -145,6 +157,13 @@ const Wrapper = styled.div`
           color: #333;
           background: white;
         }
+        @media screen and (max-width: 800px) {
+          height: 30vh;
+          width: 45%;
+          margin: 5px;
+          justify-content: space-between;
+          padding: 20px 10px;
+        }
       }
     }
     .faqReg {
@@ -153,11 +172,19 @@ const Wrapper = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+      @media screen and (max-width: 800px) {
+        flex-direction: column;
+        margin: 5vh auto;
+      }
       section {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 50%;
+        @media screen and (max-width: 800px) {
+          width: 80%;
+          margin: 3vh auto;
+        }
         h3 {
           /* display: flex;
           align-items: flex-end;
@@ -166,6 +193,9 @@ const Wrapper = styled.div`
             margin-left: 10px;
             margin-bottom: -5px;
             color: var(--secondaryColor3);
+            @media screen and (max-width: 800px) {
+              display: none;
+            }
           }
         }
       }

@@ -9,7 +9,6 @@ const ShortRoads = () => {
   return (
     <Wrapper className="mainPage">
       <div className="title">
-        {/* <h2>Polecane Trasy</h2> */}
         <h2>Zastanawiasz się gdzie pojechać?</h2>
       </div>
       <MdDirectionsBike className="bike svg" />
@@ -28,10 +27,14 @@ const ShortRoads = () => {
 const Wrapper = styled.div`
   background: var(--secondaryColor3);
   background: #333;
-  /* height: 85vh; */
+  padding-top: 7vh;
   .title {
     display: block;
     margin-left: 5vw;
+    @media screen and (max-width: 800px) {
+      margin: 0 auto;
+      width: 90vw;
+    }
     h2 {
       color: white;
     }
@@ -44,6 +47,11 @@ const Wrapper = styled.div`
     top: 57%;
     left: 12.5%;
     font-size: 5rem;
+    @media screen and (max-width: 800px) {
+      font-size: 3rem;
+      top: 47%;
+      left: 3%;
+    }
   }
   .marker {
     position: absolute;
@@ -51,6 +59,11 @@ const Wrapper = styled.div`
     right: 24%;
     animation: markerSizer 2s infinite alternate;
     font-size: 7rem;
+    @media screen and (max-width: 800px) {
+      font-size: 4rem;
+      top: 28%;
+      right: 12%;
+    }
   }
   @keyframes markerSizer {
     0% {
@@ -70,6 +83,13 @@ const Wrapper = styled.div`
     bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
+    @media screen and (max-width: 800px) {
+      width: 107vw;
+      left: 0%;
+      transform: translateX(0%);
+      height: 50vh;
+      bottom: 23%;
+    }
   }
   .linkToRoads {
     position: absolute;
@@ -82,6 +102,7 @@ const Wrapper = styled.div`
     color: white;
     cursor: pointer;
     font-family: var(--headerFont);
+
     h3 {
       font-size: 1.8rem;
     }
@@ -92,8 +113,24 @@ const Wrapper = styled.div`
       transition: 0.3s;
     }
     :hover svg {
-      /* margin-top: 5vh; */
       font-size: 4rem;
+    }
+    @media screen and (max-width: 800px) {
+      top: 87%;
+      flex-direction: row;
+      width: 80%;
+      justify-content: center;
+      h3 {
+        font-size: 1.4rem;
+        width: 70%;
+      }
+      svg {
+        font-size: 2.5rem;
+        margin-top: 0vh;
+      }
+      :hover svg {
+        font-size: 2.5rem;
+      }
     }
   }
 `;

@@ -118,8 +118,8 @@ const Wrapper = styled.div`
     @media screen and (max-width: 800px) {
       top: 87%;
       flex-direction: row;
-      width: 80%;
-      justify-content: center;
+      width: 70%;
+      justify-content: space-between;
       h3 {
         font-size: 1.4rem;
         width: 70%;

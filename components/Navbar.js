@@ -136,43 +136,64 @@ const Navbar = () => {
           </button>
           <img src={logo} alt="logo" className="logo" />
           <Link href="/">
-            <a className={router.pathname == "/" ? "active" : ""}>
+            <a
+              className={router.pathname == "/" ? "active" : ""}
+              onClick={() => setShowMenu(false)}
+            >
               <HiHome />
               {plLanguage ? "strona główna" : "home page"}
             </a>
           </Link>
           <Link href="/bikes">
-            <a className={router.pathname == "/bikes" ? "active" : ""}>
+            <a
+              className={router.pathname == "/bikes" ? "active" : ""}
+              onClick={() => setShowMenu(false)}
+            >
               <TbBike />
               {plLanguage ? "rowery" : "bikes"}
             </a>
           </Link>
           <Link href="/roads">
-            <a className={router.pathname == "/roads" ? "active" : ""}>
+            <a
+              className={router.pathname == "/roads" ? "active" : ""}
+              onClick={() => setShowMenu(false)}
+            >
               <FiMap />
               {plLanguage ? "polecane trasy" : "favorite roads"}
             </a>
           </Link>
           <Link href="/gallery">
-            <a className={router.pathname == "/gallery" ? "active" : ""}>
+            <a
+              className={router.pathname == "/gallery" ? "active" : ""}
+              onClick={() => setShowMenu(false)}
+            >
               <FaImages />
               {plLanguage ? "galeria" : "gallery"}
             </a>
           </Link>
           <Link href="/faq">
-            <a className={router.pathname == "/faq" ? "active" : ""}>
+            <a
+              className={router.pathname == "/faq" ? "active" : ""}
+              onClick={() => setShowMenu(false)}
+            >
               <FaQuestion />
               FAQ
             </a>
           </Link>
           <Link href="/regulations">
-            <a className={router.pathname == "/regulations" ? "active" : ""}>
+            <a
+              className={router.pathname == "/regulations" ? "active" : ""}
+              onClick={() => setShowMenu(false)}
+            >
               <HiExclamation />
               {plLanguage ? "regulamin" : "regulations"}
             </a>
           </Link>
           <Link href="/contact">
-            <a className={router.pathname == "/contact" ? "active" : ""}>
+            <a
+              className={router.pathname == "/contact" ? "active" : ""}
+              onClick={() => setShowMenu(false)}
+            >
               <HiMail />
               {plLanguage ? "kontakt" : "contact"}
             </a>
@@ -184,6 +205,7 @@ const Navbar = () => {
                   ? "bookingLink activeLink"
                   : "bookingLink"
               }
+              onClick={() => setShowMenu(false)}
             >
               {plLanguage ? "Rezerwacja" : "reservation"}
             </a>
@@ -325,7 +347,7 @@ const Wrapper2 = styled.div`
     width: 100vw;
     top: 0;
     left: 0;
-    padding: 25vh 0vw 35vh;
+    padding: 25vh 2vw 35vh;
     display: flex;
     /* flex-direction: column; */
     justify-content: space-between;
@@ -354,7 +376,7 @@ const Wrapper2 = styled.div`
       text-decoration: none;
       color: #bbb;
       svg {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
         margin-bottom: 2vh;
         color: #fff;
       }

@@ -51,6 +51,7 @@ const Wrapper = styled.div`
       font-size: 3rem;
       top: 47%;
       left: 3%;
+      display: none;
     }
   }
   .marker {
@@ -63,6 +64,7 @@ const Wrapper = styled.div`
       font-size: 4rem;
       top: 28%;
       right: 12%;
+      display: none;
     }
   }
   @keyframes markerSizer {
@@ -84,11 +86,11 @@ const Wrapper = styled.div`
     left: 50%;
     transform: translateX(-50%);
     @media screen and (max-width: 800px) {
-      width: 107vw;
+      width: 100vw;
       left: 0%;
       transform: translateX(0%);
       height: 50vh;
-      bottom: 23%;
+      bottom: 0%;
     }
   }
   .linkToRoads {
@@ -116,20 +118,21 @@ const Wrapper = styled.div`
       font-size: 4rem;
     }
     @media screen and (max-width: 800px) {
-      top: 87%;
-      flex-direction: row;
+      top: 53%;
+      /* flex-direction: row; */
       width: 70%;
       justify-content: space-between;
       h3 {
         font-size: 1.4rem;
-        width: 70%;
+        /* width: 70%; */
+        text-align: center;
       }
       svg {
-        font-size: 2.5rem;
-        margin-top: 0vh;
+        font-size: 3rem;
+        margin-top: 5vh;
       }
       :hover svg {
-        font-size: 2.5rem;
+        font-size: 3rem;
       }
     }
   }

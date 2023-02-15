@@ -85,6 +85,9 @@ const Wrapper = styled.div`
       color: var(--secondaryColor);
     }
   }
+  .arrowBottom {
+    display: none;
+  }
   @media screen and (max-width: 800px) {
     .arrow {
       font-size: 2rem;
@@ -99,6 +102,7 @@ const Wrapper = styled.div`
     }
     .arrowBottom {
       top: 96%;
+      display: block;
     }
   }
   .linkToBikes {

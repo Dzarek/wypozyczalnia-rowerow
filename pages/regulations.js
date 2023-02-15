@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Head from "next/head";
-import { HiShieldExclamation } from "react-icons/hi";
+import { HiExclamation } from "react-icons/hi";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -25,7 +25,7 @@ const Regulations = () => {
           <h2>Regulamin wypożyczenia roweru</h2>
           <div className="titleLine2"></div>
         </div>
-        <HiShieldExclamation className="exclamation" data-aos="zoom-in" />
+        <HiExclamation className="exclamation" data-aos="zoom-in" />
         <div className="content">
           <h3>
             I Dokonywanie i odwoływanie rezerwacji <br /> <br /> § 1

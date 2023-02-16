@@ -85,7 +85,11 @@ const Wrapper = styled.div`
   .title {
     margin: 10vh auto 5vh;
     justify-content: space-between;
-
+    @media screen and (max-width: 800px) {
+      h2 {
+        width: 70vw;
+      }
+    }
     .titleLine {
       background: var(--secondaryColor);
       height: 2px;
@@ -94,6 +98,13 @@ const Wrapper = styled.div`
       @keyframes growLine {
         100% {
           width: 35vw;
+        }
+      }
+      @media screen and (max-width: 800px) {
+        @keyframes growLine {
+          100% {
+            width: 13vw;
+          }
         }
       }
     }

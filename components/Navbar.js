@@ -434,12 +434,13 @@ const Wrapper2 = styled.div`
   .languages {
     position: absolute;
     bottom: 2vh;
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 50%;
+    transform: translateX(-50%); */
+    right: 2vw;
     display: flex;
     img {
       width: 35px;
-      margin: 0 20px;
+      margin: 0 10px;
       filter: saturate(0);
       transition: 0.4s;
       cursor: pointer;

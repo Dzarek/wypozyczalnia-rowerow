@@ -117,6 +117,9 @@ const Wrapper = styled.div`
     justify-content: space-between;
     @media screen and (max-width: 800px) {
       margin: 10vh auto 5vh;
+      h2 {
+        width: 70vw;
+      }
     }
     h2 {
       color: var(--secondaryColor3);
@@ -129,6 +132,13 @@ const Wrapper = styled.div`
       @keyframes growLine2 {
         100% {
           width: 25vw;
+        }
+      }
+      @media screen and (max-width: 800px) {
+        @keyframes growLine2 {
+          100% {
+            width: 14vw;
+          }
         }
       }
     }

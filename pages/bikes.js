@@ -82,7 +82,8 @@ const Wrapper = styled.div`
       height: 80%;
       object-fit: cover;
       @media screen and (max-width: 800px) {
-        height: 65%;
+        height: 110%;
+        width: 100%;
       }
     }
     img {
@@ -93,8 +94,8 @@ const Wrapper = styled.div`
       left: 0;
       top: 0;
       @media screen and (max-width: 800px) {
-        /* width: 50%; */
         left: 20%;
+        display: none;
       }
     }
     .title {
@@ -104,11 +105,15 @@ const Wrapper = styled.div`
       width: 50%;
       transform: translate(-50%, -50%);
       @media screen and (max-width: 800px) {
-        top: 30%;
-        left: 75%;
+        top: 88%;
+        left: 50%;
+        width: 100%;
       }
       h2 {
         color: white;
+        @media screen and (max-width: 800px) {
+          color: #333;
+        }
       }
     }
   }
@@ -122,6 +127,16 @@ const Wrapper = styled.div`
       margin-bottom: -5px;
       color: var(--secondaryColor3);
       font-size: 1.8rem;
+    }
+    @media screen and (max-width: 800px) {
+      width: 90vw;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 10vh auto 8vh;
+      svg {
+        font-size: 1.5rem;
+        margin-left: 5px;
+      }
     }
   }
   .content {
@@ -141,9 +156,28 @@ const Wrapper = styled.div`
         flex-direction: row-reverse;
       }
     }
+    @media screen and (max-width: 800px) {
+      width: 100vw;
+      margin: 8vh auto 20vh;
+
+      article {
+        flex-direction: column;
+        margin-bottom: 7vh;
+        span {
+          font-size: 5rem;
+          margin-bottom: 2vh;
+        }
+        :nth-child(even) {
+          flex-direction: column;
+        }
+      }
+    }
   }
   .oneBike {
     width: 85%;
+    @media screen and (max-width: 800px) {
+      width: 100%;
+    }
   }
 `;
 

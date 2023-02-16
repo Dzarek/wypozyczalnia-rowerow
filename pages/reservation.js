@@ -162,7 +162,7 @@ const Reservation = () => {
             <span className="numberSection">1.</span>
             <div className="details">
               <h3 className="sectionName">Zapoznaj się z regulaminem</h3>
-              <p className="sectionInfo">
+              <p className="sectionInfo sectionInfoMobile">
                 Przed dokonaniem rezerwacji przeczytaj regulamin wypożyczenia
                 roweru.
                 <Link href="/regulations">
@@ -193,7 +193,7 @@ const Reservation = () => {
             <span className="numberSection">2.</span>
             <div className="details detailsCarouzel">
               <h3 className="sectionName">Wybierz dla siebie rower</h3>
-              <p className="sectionInfo">
+              <p className="sectionInfo sectionInfoMobile">
                 Wybierz jeden lub więcej rowerów z listy poniżej lub przejdź do
                 zakładki ROWERY, aby zobaczyć wszystkie.{" "}
                 <Link href="/bikes">
@@ -216,8 +216,18 @@ const Reservation = () => {
                 addArrowClickHandler
                 stopAutoPlayOnHover
                 draggable={false}
-                arrowLeft={<MdOutlineArrowBackIos className="arrow" />}
-                arrowRight={<MdOutlineArrowForwardIos className="arrow" />}
+                arrowLeft={
+                  <div>
+                    <MdOutlineArrowBackIos className="arrow" />
+                    <MdOutlineArrowBackIos className="arrow arrowBottom" />
+                  </div>
+                }
+                arrowRight={
+                  <div>
+                    <MdOutlineArrowForwardIos className="arrow arrowRight" />
+                    <MdOutlineArrowForwardIos className="arrow arrowRight arrowBottom" />
+                  </div>
+                }
               >
                 {bikesArray.map((item, index) => {
                   return (
@@ -488,15 +498,46 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding-top: 10vh;
   position: relative;
+  @media screen and (max-width: 800px) {
+    padding-top: 0vh;
+  }
   .title {
     margin-top: 10vh;
     justify-content: space-between;
+    @media screen and (max-width: 800px) {
+      margin: 10vh auto 5vh;
+      h2 {
+        width: 70vw;
+      }
+    }
+  }
+  .titleLine {
+    background: var(--secondaryColor);
+    height: 2px;
+    width: 0;
+    animation: growLine 3s ease 1 forwards;
+  }
+  @keyframes growLine {
+    100% {
+      width: 35vw;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    @keyframes growLine {
+      100% {
+        width: 15vw;
+      }
+    }
   }
   .content {
     width: 80vw;
     margin: 10vh auto 10vh;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 800px) {
+      width: 100vw;
+      margin: 5vh auto 10vh;
+    }
     .oneSection {
       display: flex;
       align-items: flex-start;
@@ -505,6 +546,9 @@ const Wrapper = styled.div`
       border-bottom: 1px solid var(--secondaryColor3);
       padding: 5vh 3vw 10vh;
       position: relative;
+      @media screen and (max-width: 800px) {
+        padding: 12vh 0vw 10vh;
+      }
       :nth-last-of-type(1) {
         border-bottom: none;
         margin-top: 5vh;
@@ -516,9 +560,18 @@ const Wrapper = styled.div`
         position: absolute;
         top: 5vh;
         left: 0vw;
+        @media screen and (max-width: 800px) {
+          font-size: 3rem;
+          /* top: 5vh; */
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
       .details {
         width: 85%;
+        @media screen and (max-width: 800px) {
+          width: 100%;
+        }
         .paySvg {
           font-size: 5rem;
           color: var(--secondaryColor3);
@@ -531,6 +584,10 @@ const Wrapper = styled.div`
           text-transform: uppercase;
           text-align: center;
           margin: 5vh auto;
+          @media screen and (max-width: 800px) {
+            font-size: 1.6rem;
+            width: 90%;
+          }
         }
         .lastSectionName {
           color: var(--secondaryColor3);
@@ -539,9 +596,19 @@ const Wrapper = styled.div`
           font-weight: 500;
           font-size: 1.2rem;
           text-align: center;
+          @media screen and (max-width: 800px) {
+            width: 95%;
+            margin: 0 auto;
+          }
           span {
             font-weight: 600;
             color: var(--secondaryColor3);
+          }
+        }
+        .sectionInfoMobile {
+          @media screen and (max-width: 800px) {
+            display: flex;
+            flex-direction: column;
           }
         }
         .lastSection {
@@ -554,6 +621,10 @@ const Wrapper = styled.div`
         }
         .buttonLink {
           margin: 0vh auto 3vh 2vw;
+          @media screen and (max-width: 800px) {
+            font-size: 1.3rem;
+            margin: 5vh auto;
+          }
         }
         .labelCookieContainer {
           width: 80%;
@@ -574,6 +645,9 @@ const Wrapper = styled.div`
       }
       .detailsCarouzel {
         width: 95%;
+        @media screen and (max-width: 800px) {
+          width: 100%;
+        }
       }
     }
   }
@@ -583,9 +657,18 @@ const Wrapper = styled.div`
     @media screen and (min-height: 800px) {
       height: 60vh;
     }
+    @media screen and (max-width: 800px) {
+      width: 100vw;
+      height: auto;
+      position: relative;
+      padding: 5vh 0 10vh;
+    }
     .oneBike {
       width: 95%;
       margin-top: 3vh;
+      @media screen and (max-width: 800px) {
+        width: 100%;
+      }
     }
   }
   .arrow {
@@ -595,8 +678,25 @@ const Wrapper = styled.div`
     :hover {
       color: var(--secondaryColor);
     }
-    @media screen and (max-width: 800px) {
-      font-size: 1.5rem;
+  }
+  .arrowBottom {
+    display: none;
+  }
+  @media screen and (max-width: 800px) {
+    .arrow {
+      font-size: 2rem;
+      position: absolute;
+      top: 0vh;
+      left: 50%;
+      transform: translateX(-100%);
+      width: 30vw;
+    }
+    .arrowRight {
+      transform: translateX(0%);
+    }
+    .arrowBottom {
+      top: 96%;
+      display: block;
     }
   }
 
@@ -606,6 +706,11 @@ const Wrapper = styled.div`
     padding: 2vh 2vw;
     /* border: 2px solid #111; */
     background: var(--secondaryColorBg);
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      padding: 4vh 2vw;
+      margin: 5vh auto -10vh;
+    }
     h4 {
       text-align: center;
       font-size: 1.5rem;
@@ -619,11 +724,18 @@ const Wrapper = styled.div`
         font-size: 1.3rem;
         font-weight: 500;
         margin-bottom: 1vh;
+        @media screen and (max-width: 800px) {
+          font-size: 1.1rem;
+          margin-bottom: 2vh;
+        }
         svg {
           color: var(--secondaryColor3);
           margin-right: 20px;
           flex-shrink: 0;
           font-size: 1.4rem;
+          @media screen and (max-width: 800px) {
+            margin-right: 10px;
+          }
           :nth-of-type(2) {
             margin-left: 10px;
             font-size: 1.6rem;
@@ -632,6 +744,9 @@ const Wrapper = styled.div`
             color: var(--deleteColor);
             :hover {
               transform: scale(1.3);
+              @media screen and (max-width: 800px) {
+                transform: scale(1);
+              }
             }
           }
         }
@@ -642,6 +757,10 @@ const Wrapper = styled.div`
       font-size: 1.3rem;
       font-weight: 500;
       color: var(--secondaryColor3);
+      @media screen and (max-width: 800px) {
+        width: 90%;
+        margin: 0 auto;
+      }
     }
   }
 

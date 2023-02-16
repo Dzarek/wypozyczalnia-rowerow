@@ -158,10 +158,15 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 10vh 0 0;
   position: relative;
+  @media screen and (max-width: 800px) {
+    padding: 0vh 0;
+  }
   .title {
     margin: 10vh auto;
     justify-content: space-between;
-
+    @media screen and (max-width: 800px) {
+      margin: 10vh auto 5vh;
+    }
     .titleLine2 {
       background: var(--secondaryColor);
       height: 2px;
@@ -179,6 +184,9 @@ const Wrapper = styled.div`
     margin: 0 auto;
     display: block;
     opacity: 0.8;
+    @media screen and (max-width: 800px) {
+      font-size: 6rem;
+    }
   }
   .content {
     width: 80vw;
@@ -188,6 +196,10 @@ const Wrapper = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     font-family: var(--textFont);
+    @media screen and (max-width: 800px) {
+      width: 90vw;
+      margin: 0vh auto 10vh;
+    }
     h2,
     h3 {
       margin: 5vh auto;
@@ -197,12 +209,23 @@ const Wrapper = styled.div`
       font-family: var(--headerFont);
       font-size: 1.8rem;
       font-weight: 500;
+      @media screen and (max-width: 800px) {
+        font-size: 1.6rem;
+      }
     }
-
+    @media screen and (max-width: 800px) {
+      h3:nth-last-of-type(1) {
+        font-weight: 500;
+        font-size: 1.4rem;
+      }
+    }
     p {
       margin: 1vh auto 1vh 0;
       letter-spacing: 1.3;
       font-size: 1.2rem;
+      @media screen and (max-width: 800px) {
+        text-align: justify;
+      }
     }
   }
 `;

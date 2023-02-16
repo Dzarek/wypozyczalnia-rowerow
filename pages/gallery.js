@@ -79,6 +79,9 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 10vh 0;
   position: relative;
+  @media screen and (max-width: 800px) {
+    padding: 0vh 0 5vh;
+  }
   .title {
     margin: 10vh auto 5vh;
     justify-content: space-between;
@@ -105,7 +108,7 @@ const Wrapper = styled.div`
     flex-wrap: wrap;
     padding: 5vh 5vw;
     @media screen and (max-width: 800px) {
-      padding: 30px 0;
+      padding: 15px 2.5vw;
     }
   }
   .oneImg {

@@ -13,6 +13,7 @@ import { FiMap } from "react-icons/fi";
 import { useGlobalContext } from "./context";
 
 const logo = "/images/homepage/headerImg.png";
+const cycloagaeteH1 = "/images/homepage/cycloagaeteH1.png";
 const headerBg = "/images/homepage/navBg.jpg";
 const polandFlag = "/images/poland-flag.png";
 const englandFlag = "/images/england-flag.png";
@@ -135,6 +136,8 @@ const Navbar = () => {
             <FaRegArrowAltCircleUp />
           </button>
           <img src={logo} alt="logo" className="logo" />
+          <img src={cycloagaeteH1} alt="logo" className="logo2" />
+
           <Link href="/">
             <a
               className={router.pathname == "/" ? "active" : ""}
@@ -225,6 +228,14 @@ const Navbar = () => {
             />
           </div>
         </div>
+        <button
+          className={offset > 200 ? "upBtn" : "upBtn upBtnNone"}
+          onClick={() => {
+            scroll.scrollToTop();
+          }}
+        >
+          <HiArrowCircleUp />
+        </button>
       </Wrapper2>
     </>
   );
@@ -347,13 +358,13 @@ const Wrapper2 = styled.div`
     width: 100vw;
     top: 0;
     left: 0;
-    padding: 25vh 2vw 35vh;
+    padding: 28vh 1vw 30vh;
     display: flex;
     /* flex-direction: column; */
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    z-index: 9999;
+    z-index: 99999;
     background: #111;
     transition: 1s;
     /* background-image: url(${headerBg}); */
@@ -362,7 +373,7 @@ const Wrapper2 = styled.div`
     h5,
     a {
       width: 30%;
-      margin: 2vh auto;
+      margin: 2vh auto 2vh;
       font-weight: 500;
       display: flex;
       flex-direction: column;
@@ -393,7 +404,7 @@ const Wrapper2 = styled.div`
     .bookingLink {
       min-width: 50%;
       font-weight: 500;
-      margin-top: 8vh;
+      margin-top: 5vh;
       font-size: 1.2rem;
       background: var(--secondaryColor3);
       padding: 8px 10px;
@@ -402,9 +413,16 @@ const Wrapper2 = styled.div`
     }
 
     .logo {
-      width: 30%;
+      width: 25%;
       position: absolute;
-      top: 5vh;
+      top: 3vh;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .logo2 {
+      width: 50%;
+      position: absolute;
+      top: 20vh;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -429,6 +447,24 @@ const Wrapper2 = styled.div`
     .activeFlag {
       filter: saturate(0.5);
     }
+  }
+  .upBtn {
+    position: fixed;
+    bottom: 3vh;
+    right: 3vw;
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+    color: var(--secondaryColor3);
+    transition: 0.5s;
+    cursor: pointer;
+    z-index: 9999;
+    :hover {
+      color: var(--secondaryColor3);
+    }
+  }
+  .upBtnNone {
+    opacity: 0;
   }
 `;
 

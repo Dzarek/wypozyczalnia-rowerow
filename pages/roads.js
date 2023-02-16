@@ -69,7 +69,10 @@ const Roads = () => {
 const Wrapper = styled.div`
   min-height: 100vh;
   background-color: var(--secondaryColorBg);
-
+  @media screen and (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+  }
   .firstInfo {
     width: 60vw;
     margin: 7vh auto 3vh;
@@ -86,8 +89,19 @@ const Wrapper = styled.div`
         color: var(--secondaryColor3);
       }
     }
+    @media screen and (max-width: 800px) {
+      width: 80vw;
+      margin: 2vh auto 3vh;
+      h3 {
+        font-size: 1.2rem;
+      }
+    }
+
     section {
       margin: 5vh;
+      @media screen and (max-width: 800px) {
+        margin: 5vh auto;
+      }
       svg {
         margin: 0 3vw;
         font-size: 3rem;
@@ -95,6 +109,10 @@ const Wrapper = styled.div`
         transition: 0.4s;
         :hover {
           transform: scale(1.3);
+        }
+        @media screen and (max-width: 800px) {
+          margin: 0 10vw;
+          font-size: 2.5rem;
         }
       }
     }
@@ -108,6 +126,12 @@ const Wrapper = styled.div`
     width: 35vw;
     opacity: 0.3;
     animation: compasRotate 10s infinite alternate;
+    @media screen and (max-width: 800px) {
+      margin: 20vh auto -15vh;
+      width: 100vw;
+      position: relative;
+      order: 3;
+    }
   }
   @keyframes compasRotate {
     0% {
@@ -130,6 +154,11 @@ const Wrapper = styled.div`
     width: 90vw;
     margin: 0 auto;
     padding: 15vh 0 20vh;
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      align-items: center;
+      padding: 10vh 0 0vh;
+    }
   }
   .oneRoad {
     width: 18vw;
@@ -179,6 +208,36 @@ const Wrapper = styled.div`
     }
     :nth-of-type(even) {
       margin-top: 7vh;
+    }
+    @media screen and (max-width: 800px) {
+      width: 90vw;
+      height: auto;
+      :hover {
+        transform: scale(1);
+      }
+      img {
+        height: 60%;
+        width: 100%;
+        object-fit: cover;
+      }
+      h4 {
+        font-size: 1.3rem;
+        padding: 2vh 0 1vh;
+      }
+      p {
+        font-size: 1.2rem;
+        font-weight: 500;
+        padding: 2vh 0;
+      }
+
+      :nth-of-type(odd) {
+        margin-top: 0vh;
+        margin-bottom: 7vh;
+      }
+      :nth-of-type(even) {
+        margin-top: 0vh;
+        margin-bottom: 7vh;
+      }
     }
   }
 `;

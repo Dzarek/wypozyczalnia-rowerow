@@ -73,34 +73,39 @@ const KontaktPage = () => {
                 NIF: <span>Y4457501T</span>
               </h4>
             </div>
-            {/* <div className="socialMediaWrapperM">
-              <a href="tel:+48798698605">
-                <MdOutlinePhoneAndroid /> <span>798 867 716</span>
+            <div className="socialMediaWrapperM">
+              <a href="tel:+48606475397">
+                <MdOutlinePhoneAndroid />
+                <span>+48 606 475 397</span>
               </a>
-              <a href="mailto:piotr.j.sajdak@gmail.com">
-                <MdEmail /> <span>piotr.j.sajdak@gmail.com</span>
+              <a href="tel:+34686738919">
+                <MdOutlinePhoneAndroid />
+                <span>+34 686 738 919</span>
+              </a>
+              <a href="mailto:info@cyclotrener.pl">
+                <MdEmail />
+                <span>info@cyclotrener.pl</span>
               </a>
               <a
-                href="https://www.facebook.com/PracowniarowerowPiotrSajdak"
+                href="https://www.facebook.com/Cyclo-Agaete-Bike-Rental-641591279633781/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaFacebookSquare /> <span>PracowniarowerowPiotrSajdak</span>
-              </a>
-              <a
-                href="https://www.instagram.com/veloway_pracowniarowerow/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaInstagramSquare /> <span>veloway_pracowniarowerow</span>
+                <FaFacebookSquare />
+                <span>Cyclo Agaete Bike Rental</span>
               </a>
               <h4>
-                <FaMapMarkerAlt /> <span>ul. Długa 48, 33-170 Tuchów</span>
+                <FaMapMarkerAlt />
+                <span>
+                  Calle Maestro Jose Bermudez 5, 1G <br />
+                  35480 Agaete, Las Palmas de Gran Canaria, Hiszpania
+                </span>
               </h4>
               <h4>
-                NIP: <span>993 06 90 883</span>
+                <p>NIF</p>
+                <span>Y4457501T</span>
               </h4>
-            </div> */}
+            </div>
             <div className="bankInfo">
               <h3>Dane do przelewu:</h3>
               <h4>
@@ -131,11 +136,16 @@ const Wrapper = styled.div`
   padding-top: 10vh;
   position: relative;
   @media screen and (max-width: 800px) {
-    padding: 5vh 0 0vh;
+    padding: 0vh 0;
   }
   .title {
     margin: 10vh auto;
     justify-content: space-between;
+    @media screen and (max-width: 800px) {
+      h2 {
+        width: 70vw;
+      }
+    }
   }
 
   .contactContainer {
@@ -242,14 +252,33 @@ const Wrapper = styled.div`
     h4 {
       display: flex;
       align-items: center;
+      justify-content: flex-start;
       :hover {
         transform: none;
       }
       span {
         margin-left: 10px;
+        :hover {
+          color: var(--secondaryColor3);
+          letter-spacing: 0px;
+        }
       }
       svg {
         font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+    }
+    @media screen and (max-width: 800px) {
+      h4:nth-last-of-type(1) {
+        p {
+          font-size: 1rem;
+          background: var(--primaryColor);
+          color: white;
+          padding: 5px 5px;
+          border-radius: 10px;
+          text-align: center;
+          margin-left: -5px;
+        }
       }
     }
   }
@@ -268,10 +297,14 @@ const Wrapper = styled.div`
         letter-spacing: 1px;
       }
       @media screen and (max-width: 800px) {
-        margin: 1vh auto 1vh;
-        width: 90vw;
+        margin: 1vh auto 2vh;
+        width: 95vw;
         font-size: 1.2rem;
         text-align: center;
+        :hover {
+          color: var(--secondaryColor3);
+          letter-spacing: 0px;
+        }
       }
       span {
         margin-right: 10px;
@@ -282,6 +315,11 @@ const Wrapper = styled.div`
         padding: 2px;
         border-radius: 10px;
         text-align: center;
+        @media screen and (max-width: 800px) {
+          width: 50px;
+          padding: 5px;
+          font-size: 1rem;
+        }
       }
     }
     .bankInfoName {

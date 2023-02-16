@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Head from "next/head";
-// import Link from "next/link";
 import { bikesArray } from "../public/data";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -71,9 +70,10 @@ const Wrapper = styled.div`
     width: 100vw;
     height: 50vh;
     position: relative;
-    background: #111;
     background: var(--bikeVideoBg);
-
+    @media screen and (max-width: 800px) {
+      height: 40vh;
+    }
     .video {
       position: absolute;
       bottom: 0%;
@@ -81,6 +81,9 @@ const Wrapper = styled.div`
       width: 50%;
       height: 80%;
       object-fit: cover;
+      @media screen and (max-width: 800px) {
+        height: 65%;
+      }
     }
     img {
       object-fit: cover;
@@ -89,6 +92,10 @@ const Wrapper = styled.div`
       position: absolute;
       left: 0;
       top: 0;
+      @media screen and (max-width: 800px) {
+        /* width: 50%; */
+        left: 20%;
+      }
     }
     .title {
       position: absolute;
@@ -96,6 +103,10 @@ const Wrapper = styled.div`
       left: 70%;
       width: 50%;
       transform: translate(-50%, -50%);
+      @media screen and (max-width: 800px) {
+        top: 30%;
+        left: 75%;
+      }
       h2 {
         color: white;
       }

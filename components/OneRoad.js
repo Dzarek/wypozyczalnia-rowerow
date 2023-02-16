@@ -70,6 +70,9 @@ const Wrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999999;
+  @media screen and (max-width: 800px) {
+    background: rgba(0, 0, 0, 0.95);
+  }
   .closeIcon {
     position: absolute;
     top: 3vh;
@@ -79,7 +82,9 @@ const Wrapper = styled.div`
     color: #eee;
     cursor: pointer;
     transition: 0.4s;
-
+    @media screen and (max-width: 800px) {
+      top: 5vh;
+    }
     :hover {
       color: var(--secondaryColor);
       transform: translateX(-50%) rotate(180deg);
@@ -116,6 +121,7 @@ const Wrapper = styled.div`
       position: relative;
       @media screen and (max-width: 800px) {
         width: 100%;
+        margin: 0vh auto 5vh;
       }
       iframe {
         border: 2px solid var(--secondaryColor);
@@ -190,17 +196,27 @@ const Wrapper = styled.div`
       justify-content: center;
       background: #fff;
       width: 100%;
+      @media screen and (max-width: 800px) {
+        justify-content: space-around;
+      }
       span {
         display: flex;
         flex-direction: row;
         align-items: center;
         font-size: 2rem;
         margin: 3vh 5vw;
-
+        @media screen and (max-width: 800px) {
+          font-size: 1.5rem;
+          margin: 3vh auto;
+        }
         svg {
           color: var(--secondaryColor3);
           font-size: 3rem;
           margin-right: 10px;
+          @media screen and (max-width: 800px) {
+            font-size: 2.5rem;
+            margin-right: 10px;
+          }
         }
       }
     }

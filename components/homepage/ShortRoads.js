@@ -28,6 +28,9 @@ const Wrapper = styled.div`
   background: var(--secondaryColor3);
   background: #333;
   padding-top: 7vh;
+  @media screen and (max-width: 800px) {
+    min-height: 70vh;
+  }
   .title {
     display: block;
     margin-left: 5vw;

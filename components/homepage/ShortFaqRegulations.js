@@ -17,32 +17,32 @@ const ShortFaqRegulations = () => {
         </h3>
         <div className="steps">
           <div className="oneStep">
-            <span>1</span>
+            <span>1.</span>
             <h4>przeczytaj regulamin</h4>
             <TbFileText />
           </div>
           <div className="oneStep">
-            <span>2</span>
+            <span>2.</span>
             <h4>wybierz rower</h4>
             <TbEye />
           </div>
           <div className="oneStep">
-            <span>3</span>
+            <span>3.</span>
             <h4>wypełnij formularz</h4>
             <TbEdit />
           </div>
           <div className="oneStep">
-            <span>4</span>
+            <span>4.</span>
             <h4>opłać rezerwację</h4>
             <GiReceiveMoney />
           </div>
           <div className="oneStep">
-            <span>5</span>
+            <span>5.</span>
             <h4>odbierz sprzęt</h4>
             <TbBike />
           </div>
           <div className="oneStep">
-            <span>6</span>
+            <span>6.</span>
             <h4>zwróć sprzęt</h4>
             <TbArrowBack />
           </div>
@@ -163,6 +163,7 @@ const Wrapper = styled.div`
           margin: 5px;
           justify-content: space-between;
           padding: 20px 10px;
+          font-size: 1.1rem;
         }
       }
     }

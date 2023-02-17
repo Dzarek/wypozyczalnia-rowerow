@@ -359,6 +359,7 @@ const Wrapper2 = styled.div`
     top: 0;
     left: 0;
     padding: 28vh 1vw 30vh;
+    padding: 28dvh 1vw 30dvh;
     display: flex;
     /* flex-direction: column; */
     justify-content: space-between;
@@ -374,6 +375,7 @@ const Wrapper2 = styled.div`
     a {
       width: 30%;
       margin: 2vh auto 2vh;
+      margin: 2dvh auto 2dvh;
       font-weight: 500;
       display: flex;
       flex-direction: column;
@@ -389,6 +391,7 @@ const Wrapper2 = styled.div`
       svg {
         font-size: 2.3rem;
         margin-bottom: 2vh;
+        margin-bottom: 2dvh;
         color: #fff;
       }
       &.active {
@@ -405,6 +408,7 @@ const Wrapper2 = styled.div`
       min-width: 50%;
       font-weight: 500;
       margin-top: 5vh;
+      margin-top: 5dvh;
       font-size: 1.2rem;
       background: var(--secondaryColor3);
       padding: 8px 10px;
@@ -416,6 +420,7 @@ const Wrapper2 = styled.div`
       width: 25%;
       position: absolute;
       top: 3vh;
+      top: 3dvh;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -423,6 +428,7 @@ const Wrapper2 = styled.div`
       width: 50%;
       position: absolute;
       top: 20vh;
+      top: 20dvh;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -430,10 +436,12 @@ const Wrapper2 = styled.div`
   .none {
     transition: 1s;
     transform: translateY(-115vh);
+    transform: translateY(-115dvh);
   }
   .languages {
     position: absolute;
     bottom: 2vh;
+    bottom: 2dvh;
     /* left: 50%;
     transform: translateX(-50%); */
     right: 2vw;
@@ -452,6 +460,7 @@ const Wrapper2 = styled.div`
   .upBtn {
     position: fixed;
     bottom: 3vh;
+    bottom: 3dvh;
     right: 3vw;
     font-size: 2rem;
     background: transparent;

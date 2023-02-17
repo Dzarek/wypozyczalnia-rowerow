@@ -440,10 +440,7 @@ const Wrapper2 = styled.div`
   }
   .languages {
     position: absolute;
-    bottom: 7vh;
-    bottom: 7dvh;
-    /* bottom: 2vh;
-    bottom: 2dvh; */
+    bottom: 2vh;
     /* left: 50%;
     transform: translateX(-50%); */
     right: 2vw;

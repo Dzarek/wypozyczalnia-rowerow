@@ -161,10 +161,7 @@ body {
 
 .navHamburger2 {
     position: fixed;
-    bottom: 6vh;
-    bottom: 6dvh;
-    /* bottom: 1vh;
-    bottom: 1dvh; */
+    bottom: 1vh;
     left: 2vw;
     width: 50px;
     height: 50px;

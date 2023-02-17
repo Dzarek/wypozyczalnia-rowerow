@@ -3,6 +3,7 @@ import { VscDebugBreakpointData } from "react-icons/vsc";
 // import Link from "next/link";
 import { useGlobalContext } from "./context";
 import { useState, useEffect } from "react";
+import { GiCheckMark } from "react-icons/gi";
 
 const OneBike = ({ item }) => {
   const { name, img, details, info, size, prices } = item;
@@ -23,6 +24,7 @@ const OneBike = ({ item }) => {
 
   return (
     <Wrapper>
+      {activeBike && <GiCheckMark className="okMark" />}
       <div className={activeBike ? "bikeDisable" : ""}>
         <h3 className="bikeName">{name}</h3>
         <section>
@@ -77,11 +79,23 @@ const Wrapper = styled.div`
   flex-direction: column;
   border: 2px solid var(--secondaryColor);
   border-radius: 5px;
+  position: relative;
   .bikeDisable {
-    opacity: 0.7;
+    opacity: 0.5;
     transition: 0.4s;
   }
-
+  .okMark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--primaryColor);
+    font-size: 5rem;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    padding: 20%;
+  }
   .bikeName {
     width: 100%;
     text-transform: uppercase;

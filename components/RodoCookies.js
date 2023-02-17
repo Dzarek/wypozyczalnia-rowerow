@@ -184,7 +184,7 @@ const Wrapper = styled.div`
   padding: 5vh 5vw;
   border-radius: 5px;
   border: 3px solid var(--secondaryColor);
-  box-shadow: 3vw 3vw 3vw 15vw var(--aboutMeBgColor);
+  box-shadow: 3vw 3vw 3vw 15vw #222;
   h2,
   h1 {
     text-align: center;
@@ -223,6 +223,8 @@ const Wrapper = styled.div`
     height: 100vh;
     box-shadow: none;
     padding: 10px;
+    border-radius: 0px;
+    box-shadow: none;
     p {
       text-align: justify;
       padding: 15px;

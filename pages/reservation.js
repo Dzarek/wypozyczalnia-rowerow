@@ -6,6 +6,7 @@ import { useGlobalContext } from "../components/context";
 import emailjs from "emailjs-com";
 import { bikesArray } from "../public/data";
 import OneBike from "../components/OneBike";
+import RodoCookies from "../components/RodoCookies";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import {
@@ -25,6 +26,7 @@ let minDate = new Date().toISOString().slice(0, 10);
 const Reservation = () => {
   const { choosenBikes, setChoosenBikes } = useGlobalContext();
 
+  const [visibleCookie, setVisibleCookie] = useState(false);
   const [status, setStatus] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -375,7 +377,8 @@ const Reservation = () => {
                         name="withCoachBox"
                         value={withCoachBox ? "tak" : "nie"}
                       />
-                      Jestem zainteresowany/na wycieczką/treningiem z trenerem.
+                      Jestem zainteresowany/na wycieczką/treningiem z
+                      przewodnikiem.
                     </p>
                   </label>
                 </div>
@@ -392,7 +395,7 @@ const Reservation = () => {
 
                 <div className="labelCookieContainer2">
                   <label className="labelCheck" htmlFor="policyBox">
-                    <p>
+                    <p className="policyAgree">
                       <input
                         type="checkbox"
                         id="policyBox"
@@ -488,6 +491,7 @@ const Reservation = () => {
           </section>
         </form>
       </Wrapper>
+      {visibleCookie && <RodoCookies setVisibleCookie={setVisibleCookie} />}
     </>
   );
 };
@@ -552,6 +556,9 @@ const Wrapper = styled.div`
       :nth-last-of-type(1) {
         border-bottom: none;
         margin-top: 5vh;
+        @media screen and (max-width: 800px) {
+          margin-top: 0vh;
+        }
       }
       .numberSection {
         font-size: 10rem;
@@ -577,6 +584,10 @@ const Wrapper = styled.div`
           color: var(--secondaryColor3);
           margin: 3vh auto 0;
           display: block;
+          @media screen and (max-width: 800px) {
+            font-size: 4rem;
+            margin: 5vh auto 0;
+          }
         }
         .sectionName {
           font-family: var(--headerFont);
@@ -597,7 +608,7 @@ const Wrapper = styled.div`
           font-size: 1.2rem;
           text-align: center;
           @media screen and (max-width: 800px) {
-            width: 95%;
+            width: 90%;
             margin: 0 auto;
           }
           span {
@@ -613,7 +624,9 @@ const Wrapper = styled.div`
         }
         .lastSection {
           font-size: 1.4rem;
-
+          @media screen and (max-width: 800px) {
+            font-size: 1.2rem;
+          }
           svg {
             color: var(--secondaryColor3);
             margin: 5px auto 0 10px;
@@ -768,6 +781,10 @@ const Wrapper = styled.div`
   .formContainer {
     width: 80%;
     margin: 0 auto;
+    @media screen and (max-width: 800px) {
+      width: 90%;
+      margin: 5vh auto 0;
+    }
   }
   .formSection {
     .sectionInfo {
@@ -801,8 +818,15 @@ const Wrapper = styled.div`
       align-items: center;
       justify-content: space-between;
       margin: 2vh auto;
+      @media screen and (max-width: 800px) {
+        flex-direction: column;
+      }
       .formInput {
         width: 45%;
+        @media screen and (max-width: 800px) {
+          width: 100%;
+          margin-bottom: 2vh;
+        }
       }
       input {
         width: 100%;
@@ -814,9 +838,17 @@ const Wrapper = styled.div`
       align-items: center;
       justify-content: flex-start;
       margin: 2vh auto 5vh;
+      @media screen and (max-width: 800px) {
+        flex-direction: column;
+      }
       .formInput {
         width: 34%;
         margin-right: 2%;
+        @media screen and (max-width: 800px) {
+          width: 80%;
+          margin-right: 0%;
+          margin-bottom: 1vh;
+        }
       }
       input {
         width: 100%;
@@ -857,10 +889,18 @@ const Wrapper = styled.div`
   .labelCookieContainer2 {
     margin: 2vh auto;
     p {
+      @media screen and (max-width: 800px) {
+        font-size: 1.2rem;
+      }
       input {
         margin-right: 10px;
         width: 20px;
         height: 20px;
+      }
+    }
+    .policyAgree {
+      @media screen and (max-width: 800px) {
+        font-weight: 500;
       }
     }
     .coachInfo {
@@ -896,8 +936,13 @@ const Wrapper = styled.div`
     }
     @media screen and (max-width: 800px) {
       width: 60%;
-      padding: 5px 0px;
+      padding: 8px 0px;
       font-weight: 500;
+      font-size: 1.3rem;
+      letter-spacing: 3px;
+      :hover {
+        letter-spacing: 3px;
+      }
     }
   }
   .messageAlert {
@@ -915,6 +960,12 @@ const Wrapper = styled.div`
     margin: 5vh auto 0;
     display: block;
     border: 2px solid var(--secondaryColor);
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      margin: 8vh auto -10vh;
+      border: 2px solid var(--secondaryColor3);
+      border-bottom: 1px solid var(--secondaryColor3);
+    }
   }
 `;
 

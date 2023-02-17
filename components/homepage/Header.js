@@ -5,9 +5,11 @@ import { HiChevronDoubleDown } from "react-icons/hi";
 
 const cycloagaeteH1 = "/images/homepage/cycloagaeteH1.png";
 const headerBg = "/images/homepage/headerBg.jpg";
-const pasekBg = "/images/homepage/pasek.png";
 const polandFlag = "/images/poland-flag.png";
 const englandFlag = "/images/england-flag.png";
+
+// const pasekBg = "/images/homepage/pasek.png";
+const logo = "/images/homepage/headerImg2.png";
 
 const Header = () => {
   const { plLanguage, setPlLanguage } = useGlobalContext();
@@ -15,7 +17,10 @@ const Header = () => {
   return (
     <Wrapper>
       <img src={headerBg} alt="" className="headerBg" />
-      <img src={pasekBg} alt="" className="pasek" />
+      {/* <img src={pasekBg} alt="" className="pasek" /> */}
+      <div className="logoContainer">
+        <img src={logo} alt="" />
+      </div>
       <nav>
         <Link href="/">
           <p className="activeNav">
@@ -77,7 +82,7 @@ const Wrapper = styled.div`
   @media screen and (max-width: 800px) {
     height: 100dvh;
   }
-  .pasek {
+  /* .pasek {
     position: absolute;
     top: 0;
     left: 0;
@@ -88,14 +93,34 @@ const Wrapper = styled.div`
     @media screen and (max-height: 500px) {
       display: none;
     }
+  } */
+  .logoContainer {
+    width: 15vw;
+    height: 10vh;
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+    z-index: 999;
+    /* padding: 0 5vw 0 5vw; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* background: #fff; */
+    img {
+      height: 100%;
+    }
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
   }
   .languages {
     border-left: 2px solid var(--secondaryColor);
     display: flex;
-    padding-left: 20px;
+    padding-left: 3vw;
+    margin-left: 3vw;
     img {
-      width: 30px;
-      margin: 0 10px;
+      width: 35px;
+      margin: 0 15px;
       filter: saturate(0);
       transition: 0.4s;
       cursor: pointer;
@@ -110,15 +135,17 @@ const Wrapper = styled.div`
 
   nav {
     width: 80vw;
+    width: 85vw;
     height: 10vh;
     position: absolute;
     top: 0vh;
     right: 0;
     z-index: 999;
-    padding: 0 5vw 0 5vw;
+    padding: 0 5vw 0 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #fff;
     @media screen and (max-width: 1440px) {
       padding: 0 3vw 0 3vw;
     }
@@ -138,6 +165,7 @@ const Wrapper = styled.div`
       font-family: var(--headerFont);
       height: 100%;
       padding: 0 1.5vw;
+      /* padding: 0 2vw; */
       cursor: pointer;
       transition: 0.4s;
       display: flex;
